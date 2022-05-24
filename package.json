@@ -1,0 +1,15 @@
+{
+  "name": "validator",
+  "version": "1.0.0",
+  "description": "GDPRValidator web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Miguel Ángel Martínez",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "react-bootstrap": "^2.4.0"
+  }
+}
