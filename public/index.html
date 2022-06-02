@@ -1,34 +1,250 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#" class="colors">
 
 
-    <h1>GDPRValidator web app</h1>
-    <h2>Welcome to the GDPRValidator compliance web form</h2>
-    <link href="../styles/styles.css" rel="stylesheet" type="text/css">
-    <meta charset="utf-8">
-    <title>GDPRValidator web tool</title>
-  </head>
 
-  <body>
-    <img src="images/gdpr-6038525_960_720.png" alt="General Data Protection Regulation">
-    <p>En Mozilla, somos una comunidad de</p>
-    <ul>
-    <li>tecnólogos</li>
-    <li>pensadores</li>
-    <li>constructores</li>
-    </ul>
-    <p>trabajando juntos... </p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
-    <a href="https://www.mozilla.org/es-AR/about/manifesto/">Manifesto Mozilla</a>
+  <title>GDPRValidator</title>
 
-    <button id="startButton">
-      <a href="./app/checbox.html">Get validated</a>
-    </button>
 
-    <script src="../src/main.js"></script>
-  </body>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+  <link href="../node_modules/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="../styles/styles.css" rel="stylesheet">
+</head>
+
+<body class="page-node-211 path-node page-node-type-herramienta">
+
+  <div class="cover-container d-flex p-3 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">GDPRValidator</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" href="cover.html">Home</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Tool</a>
+          <!-- <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a> -->
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+
+      <div class="region region-highlighted">
+        <div data-drupal-messages-fallback class="hidden"></div>
+
+      </div>
+
+
+
+      <main>
+        <a id="main-content" tabindex="-1"></a>
+        <div class="layout-wrapper">
+
+          <div class="layout-content">
+            <div class="region region-content">
+              <div id="block-redipd-page-title" class="block block-core block-page-title-block">
+
+
+              </div>
+              <div id="block-redipd-content" class="block block-system block-system-main-block">
+
+
+
+                <article data-history-node-id="211" class="node node--type-herramienta node--view-mode-full">
+
+
+
+
+
+                  <div class="node__content">
+
+                    <div
+                      class="clearfix text-formatted field field--name-field-summary field--type-text-long field--label-hidden field__item">
+                      <p> Tool that aims to assist companies that offer cloud
+                        services in complying with GDPR when they carry out low-risk data processing and store
+                        customers’
+                        data in the cloud
+                      </p>
+                    </div>
+
+                    <div
+                      class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                      <p class="text-align-justify">In 2016, the European Union (EU) adopted the General Data Protection
+                        Regulation (GDPR). This new Data Protection Directive replaces the 1995 Data Protection 
+                        Directive adopted when the Internet was relatively young. Due to the development of technologies
+                        based on distributed storage and processing, such as the cloud computing, it has become more difficult to control, 
+                        monitor, and safeguard the personal data handled by these types of infrastructure, making
+                        data breaches more likely</p>
+
+                      <p class="text-align-justify">GDPRValidator is a free tool that pretends to help small and
+                        medium organizations (SMEs) to assess their GDPR compliance. This main
+                        purpose is to make compliance with GDPR easier for data controllers, which
+                        provide services by using cloud computing and help the DPOs simplify their
+                        work.</p>
+
+                      <p class="text-align-justify">It has been designed as an useful resource for any company or
+                        professional. It consists of very specific questions displayed over only three screen pages,
+                        which allows users to assess their situation with regard to personal data processing activities
+                        carried out by them; that is, to assess whether their systems are adapted to the requirements to
+                        use GDPRValidator or if it must perform a risk analysis.</p>
+
+                      <p class="text-align-justify">GDPRValidator may not be used in any processing activities involving
+                        a high risk for rights and freedoms of persons, such as healthcare data or mass data processing,
+                        among others.</p>
+
+                      <p class="text-align-justify">The tool may generate different document adapted to an specific
+                        company, informative clauses that must be included in any personal data collection forms,
+                        contractual data to be annexed to the data controller contract, the records of processing
+                        activities and an annex including guidelines for security measures deemed as minimum.</p>
+
+                      <p class="text-align-justify">GDPRValidator is designed for companies that process low-risk
+                        personal data, such as, for example, personal data of customers, providers or human resources.
+                      </p>
+
+                      <p class="text-align-justify">It must be considered that GD is a supporting tool, and,
+                        therefore, its resulting documents must be adapted and updated to the situation of any
+                        processing activities carried out by your organisation. Obtaining said resulting documents does
+                        not automatically entail compliance with the GDPR.</p>
+
+                      <p class="text-align-justify"><a href="./checkbox.html" target="_blank"
+                          title="https://GDPRValidator/tool">Link to tool</a></p>
+
+                      <p class="text-align-justify">&nbsp;</p>
+                    </div>
+
+
+                  </div>
+
+                </article>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </main>
+
+
+      <footer class="site-footer">
+
+        <div class="footer-wrapper">
+          <div class="region region-footer">
+            <div id="block-logofooter"
+              class="block-content-type-panopoly_widgets_image block--view-mode-full block block-block-content block-block-contente7adb034-8dc6-421e-b703-37185a86a87b">
+
+
+
+              <div
+                class="field field--name-field-panopoly-widgets-image field--type-image field--label-hidden field__item">
+                <img src="./images/uclm.png" width="200" height="100" alt="Logotipo aepd"
+                  class="image-style-panopoly-images-full" />
+
+
+              </div>
+
+            </div>
+            <div id="block-addressrrss"
+              class="block-content-type-address_and_rrss block--view-mode-full block block-block-content block-block-content255afb38-141c-408e-9b2e-bfbc30eb58b1">
+
+
+
+              <div
+                class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                <p>Avda. de España, s/n. 02071 - Albacete<br /><a href="tel:+34000000000">Tel. </a><br />
+                  <!-- Educación y Menores: <a href="tel:+34900293621">900 293 621</a> -->
+                </p>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+      </footer>
+
+      <div class="back-to-top"></div>
+
+
+    </div>
+  </div>
+
+
+</body>
+
 </html>

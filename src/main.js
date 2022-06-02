@@ -9,13 +9,13 @@ let startButton = document.querySelector('startButton')
 
 
 
-if (!localStorage.getItem('nombre')) {
-    estableceNombreUsuario();
-}
-else {
-    let nombreAlmacenado = localStorage.getItem('nombre');
-    miTitulo.textContent = 'Mozilla es genial,' + nombreAlmacenado;
-}
+// if (!localStorage.getItem('nombre')) {
+//     estableceNombreUsuario();
+// }
+// else {
+//     let nombreAlmacenado = localStorage.getItem('nombre');
+//     miTitulo.textContent = 'Mozilla es genial,' + nombreAlmacenado;
+// }
 
 function cambiarImagen(){
     let miSrc = miImage.getAttribute('src');
