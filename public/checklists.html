@@ -1,153 +1,621 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.98.0">
-    <title>List groups · Bootstrap v5.2</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>List groups · Bootstrap v5.2</title>
 
-    
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
 
-    
 
-<link href="../node_modules/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+
+
+  <link href="../node_modules/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="../styles/list-groups.css" rel="stylesheet">
-  </head>
-  <body>
+  <!-- Custom styles for this template -->
+  <link href="../styles/list-groups.css" rel="stylesheet">
+</head>
 
-    <div class="cover-container d-flex p-3 flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">GDPRValidator</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link fw-bold py-1 px-0" href="cover.html">Home</a>
-            <a class="nav-link fw-bold py-1 px-0" href="index.html">Tool</a>
-            <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="checklists.html">Checklist</a>
-          </nav>
+<body>
+
+  <div class="cover-container d-flex p-3 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">GDPRValidator</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" href="cover.html">Home</a>
+          <a class="nav-link fw-bold py-1 px-0" href="index.html">Tool</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="checklists.html">Checklist</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Lawful basis and transparency</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                data-bs-target="#lawfulBasis_1" aria-expanded="true" aria-controls="lawfulBasis_1" value="">
+              <span>
+                Does the company conduct an information audit to determine
+                what information is processed and who has access to it?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                data-bs-target="#lawfulBasis_2" aria-expanded="true" aria-controls="lawfulBasis_2" value="">
+              <span>
+                Does your company have a legal justification for your data processing activities?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                data-bs-target="#lawfulBasis_3" aria-expanded="true" aria-controls="lawfulBasis_3" value="">
+              <span>
+                Does the company provide clear information about your
+                data processing and legal justification in your privacy
+                policy?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="lawfulBasis_1">
+                The most effective way to demonstrate
+                GDPR compliance is to conduct a data protection impact assessment (DPIA),
+                article 35. Among other things, the DPIA must include the purpose of the processing,
+                the types of data you process, who has access to it in the organization, any third parties
+                (and their location) who have access, and how you plan to protect
+                the data (such as encryption), and when you plan to erase it (if
+                possible). The CSP should also provide your company with all
+                this data access information. Therefore, the CSP should prepare
+                its DPIA to keep track of all cloud accesses. This issue can be
+                agreed upon when signing the SLA with the CSP. Your company
+                will need to ask the CSP for their DPIA to complete their DPIA.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="lawfulBasis_2">
+                The possible answers to this question relate
+                to the legal basis for the processing defined by article 6. When
+                the legal basis is “consent”, that is, the data subject (in your case,
+                your customer) has given consent to data access, your company
+                has additional obligations that include offering data subjects the
+                opportunity to revoke this consent. In the case of processing for
+                “legitimate interests” pursued by the others (your company, the
+                CSP, or by a third party), article 6. f, an assessment of privacy impacts must be conducted by your
+                company. There are other
+                provisions in articles 7 to 11 related to children and special categories of personal data.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="lawfulBasis_3">
+                This information should be included in your privacy policy and
+                provided to data subjects when their data are collected. Data
+                subjects must be informed about the data collected about them
+                and why, according to article 12. You must report how the data
+                is processed, who has access to it, and how it is kept safe.
+              </div>
+            </label>
+          </div>
         </div>
-      </header>
+        </p>
+      </div>
     </div>
-
-<div class="b-example-divider"></div>
-
-<div class="d-flex gap-5 justify-content-center">
-  <div class="list-group mx-0 w-auto">
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked>
-      <span>
-        First checkbox
-        <small class="d-block text-muted">With support text underneath to add more detail</small>
-      </span>
-    </label>
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="checkbox" value="">
-      <span>
-        Second checkbox
-        <small class="d-block text-muted">Some other text goes here</small>
-      </span>
-    </label>
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="checkbox" value="">
-      <span>
-        Third checkbox
-        <small class="d-block text-muted">And we end with another snippet of text</small>
-      </span>
-    </label>
   </div>
 
-  <div class="list-group mx-0 w-auto">
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked>
-      <span>
-        First radio
-        <small class="d-block text-muted">With support text underneath to add more detail</small>
-      </span>
-    </label>
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
-      <span>
-        Second radio
-        <small class="d-block text-muted">Some other text goes here</small>
-      </span>
-    </label>
-    <label class="list-group-item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
-      <span>
-        Third radio
-        <small class="d-block text-muted">And we end with another snippet of text</small>
-      </span>
-    </label>
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Data security</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#dataSecurity_1" aria-expanded="true" aria-controls="dataSecurity_1" value="">
+              <span>
+                From the moment projects begin to develop products to
+                each time data are processed, does the company consider
+                data protection at all times?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#dataSecurity_2" aria-expanded="true" aria-controls="dataSecurity_2" value="">
+              <span>
+                When a data breach occurs, does your company have a
+                procedure for contacting the authorities and your data
+                subjects?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="dataSecurity_1">
+                The company should evaluate whether the
+                company applies the principles of “data protection by design and
+                default” defined in article 25, such as implementing “appropriate
+                technical and organizational measures“.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="dataSecurity_2">
+                It is important to consider that, according to GDPR,
+                a data breach that exposes personal data must be reported to the
+                supervisory authority within 72 hours. According to article 34, you must also
+                notify the supervisory authority and your customers immediately,
+                within 72 hours, if there is a data breach. Unless the breach is
+                unlikely to put them at risk, for instance, if the data stolen is
+                encrypted.
+              </div>
+          </div>
+          </label>
+        </div>
+      </div>
+      </p>
+    </div>
   </div>
-</div>
-
-<div class="b-example-divider"></div>
 
 
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Accountability and governance</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#accountability_1" aria-expanded="true" aria-controls="accountability_1" value="">
+              <span>
+                Has your company signed a data processing agreement
+                with any third parties who process personal data on your
+                behalf?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#accountability_2" aria-expanded="true" aria-controls="accountability_2" value="">
+              <span>
+                Has your company appointed a Data Protection Officer
+                (if necessary)?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="accountability_1">
+                For GDPR compliance, almost all services
+                require a standard data processing agreement, which includes any
+                third-party services that handle your data subjects’ personal information.
+                A template for this agreement is available <a href="https://gdpr.eu/data-processing-agreement/">here</a>
+                , which must be visible on your
+                website and specify the rights and obligations of each party. It is
+                imperative to only work with third parties who can provide ade-
+                quate data protection guarantees. Then, the SLA with the CSP
+                must specify the list of permitted third parties.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="accountability_2">
+                There are some circumstances in which or-
+                ganizations are required to have a Data Protection Officer (DPO).
+                These conditions usually arise when a company’s activity involves
+                large-scale data processing or sensitive or special categories of data
+                are processed, according to articles 9 and 10. A DPO should be
+                an expert in data protection. This officer should have duties that
+                include monitoring GDPR compliance, assessing data protection
+                risks, advising on data protection impact assessments, and coop-
+                erating with regulators. In any case, although having a DPO isn’t
+                mandatory, it is recommended
+              </div>
+          </div>
+          </label>
+        </div>
+      </div>
+      </p>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Privacy rights</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#privacy_1"
+                aria-expanded="true" aria-controls="privacy_1" value="">
+              <span>
+                Can your customers easily access all the information
+                you have about them?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#privacy_2"
+                aria-expanded="true" aria-controls="privacy_2" value="">
+              <span>
+                Do your customers have the ability to update inaccurate
+                or incomplete information easily?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#privacy_3"
+                aria-expanded="true" aria-controls="privacy_3" value="">
+              <span>
+                Can your company access and delete the customers’
+                data from the cloud?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#privacy_4"
+                aria-expanded="true" aria-controls="privacy_4" value="">
+              <span>
+                Does your company retain ownership and control of
+                your customers’ data at all times?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#privacy_5"
+                aria-expanded="true" aria-controls="privacy_5" value="">
+              <span>
+                Does your company have information about the meta-
+                data the CSP collects?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="privacy_1">
+                First, your organization should ensure that
+                the client requesting the data is verified. Your customers have the
+                right to know what personal information your company has about
+                them, how it is used, how long it is stored, and why it is stored,
+                article 15. You must respond to these requests within one month,
+                article 16. This information is sent for free the first time it is
+                requested, but subsequent copies may have a cost.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="privacy_2">
+                First, your company needs to check the
+                identity of the customer asking for the information. Make sure
+                your company has a process that allows customers to audit their
+                data and update their personal information if necessary, article 15.
+                Your company must respond to these requests within one month,
+                article 16.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="privacy_3">
+                Your company has the right to access its
+                customers’ data and have them deleted, the right to access (article
+                15), and the right to erasure (“to be forgotten”, article 17). The
+                CSP must facilitate this process by making the data available to
+                your company and your customers in a structured format. It is
+                also important to consider data backups when deleting customer
+                data.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="privacy_4">
+                As controller, your company must retain
+                ownership and control of your customers’ data at all times. To en-
+                sure that your company retain ownership and control of your cus-
+                tomers’ data at any time, the corresponding Service Level Agree-
+                ment (SLA) should include this condition.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="privacy_5">
+                Your company should ask the CPS what metadata
+                it collects and whether your company has a right to opt out.
+                The CPS must guarantee that it will inform your company about
+                this metadata, so this condition should also be included in the
+                contract.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      </p>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Contracts</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#contracts_1" aria-expanded="true" aria-controls="contracts_1" value="">
+              <span>
+                Has your company signed an SLA with the CSP to be
+                responsible for the treatment of personal data on your
+                behalf?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#contracts_2" aria-expanded="true" aria-controls="contracts_2" value="">
+              <span>
+                Has the CSP signed an SLA for data processing with
+                any third parties who access/process personal data?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="contracts_1">
+                Your company must sign an SLA with the
+                CSP responsible for processing your customers’ data, acting as
+                the joint controller, article 26. The SLA should identify the responsibilities of the SME and the CSP,
+                as controller and joint controller, in a transparent manner. Particularly concerning the
+                exercise of rights of the interested party and their respective responsibilities
+                to provide the information referred to in articles 13
+                and 14, the agreement may designate a point of contact for the
+                interested parties.
+                Furthermore, your company need to ensure that the hired CSP
+                must declare adherence to the EU Cloud Code of Conduct (EU
+                Cloud COC) about its cloud service, article 40. The EU Cloud
+                COC was approved in 2021. It provides cloud-specific ap-
+                proaches and recommendations, including a road map that tracks
+                code requirements to GDPR and international standards like ISO
+                27001 and 27018 . In addition, the CSP and the competent supervisory authority
+                must certify that the cloud service fully complies with the provisions in the code.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="contracts_2">
+                For GDPR compliance, almost all services
+                require a standard data processing agreement, which includes any
+                third party services that handle your data subjects’ personal in-
+                formation. It is imperative to only work with third parties who
+                can provide adequate data protection guarantees.
+              </div>
+          </div>
+          </label>
+        </div>
+      </div>
+      </p>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Information</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#information_1" aria-expanded="true" aria-controls="information_1" value="">
+              <span>
+                Does your company specify a procedure to notify when
+                a breach is detected?
+              </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                href="#information_2" aria-expanded="true" aria-controls="information_2" value="">
+              <span>
+                Does the CSP explicitly inform your company where
+                each customer’s data is stored?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="information_1">
+                GDPR in the article 4 determines what is
+                considered a breach in the collection, retention, and processing
+                of data: “the accidental or unlawful destruction, loss, alteration,
+                unauthorized disclosure of, or access to, personal data transmitted,
+                stored or otherwise processed”. Then, the company must specify
+                the procedure it follows to notify when a breach is detected, for
+                instance, in the event of theft or a leak. Before a breach is reported
+                in the media, the CSP should inform your company, and your
+                company should notify its customers and supervisory authorities.
+                According to article 36, the controller must report any breach of
+                personal data to the supervisory authority competent under article
+                55 within 72 hours of becoming aware of it unless the breach is
+                unlikely to result in a risk to the rights and freedoms of natural
+                persons.
+              </div>
+            </label>
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="information_2">
+                All data of European citizens should either
+                be stored in the EU so that they are subject to European privacy
+                law or in a place where the same level of protection is guaranteed.
+                Your company is responsible for arranging with the CSP the lo-
+                cation for storing the customers’ data. The SLA, signed between
+                the CSP and the company, should include this information.
+              </div>
+          </div>
+          </label>
+        </div>
+      </div>
+      </p>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Duration</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#duration"
+                aria-expanded="true" aria-controls="duration" value="">
+              <span>
+                Does your company establish a date for data retention?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="duration">
+                The storage of data should not exceed the
+                necessary storage time. The SLA signed with the CPS must spec-
+                ify the processing duration. After the retention period has expired,
+                all data, including copies, must be deleted.
+              </div>
+            </label>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Data Protection Impact Assessment (DPIA)</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse" href="#dpia"
+                aria-expanded="true" aria-controls="dpia" value="">
+              <span>
+                Does the CPS have a Data Protection Impact Assessment
+                (DPIA) that determines the risks associated with cloud
+                hosting or services?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="dpia">
+                The CSP, as a joint data controller, should
+                also have a DPIA that determines the risks
+                associated with cloud hosting or services. It is recommendable,
+                but it is not mandatory. The CSP must send this DPIA to your
+                company every time it is updated. This suggestion complements
+                the related one 1a, presented in Lawful basis and transparency of
+                the general GDPR-compliance guidelines.
+              </div>
+            </label>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
 
 
 
-    <script src="../node_modules/assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
-  </body>
+  <script src="../node_modules/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
 </html>

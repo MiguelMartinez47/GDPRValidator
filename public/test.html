@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.98.0">
+  <title>List groups · Bootstrap v5.2</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
+
+
+
+
+
+  <link href="../node_modules/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="../styles/list-groups.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cover-container d-flex p-3 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">GDPRValidator</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" href="cover.html">Home</a>
+          <a class="nav-link fw-bold py-1 px-0" href="index.html">Tool</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="checklists.html">Checklist</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex gap-5 justify-content-center">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Lawful basis and transparency</h5>
+        <p class="card-text">
+        <div class="d-flex gap-5 justify-content-center">
+          <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" data-bs-toggle="collapse"
+                data-bs-target="#dataSecurity" aria-expanded="true" aria-controls="dataSecurity" value="">
+              <span>
+                Does the company conduct an information audit to determine
+                what information is processed and who has access to it?
+              </span>
+            </label>
+
+          </div>
+
+          <div class="list-group mx-0 w-auto ">
+            <label class="list-group-item d-flex gap-2 border-light mb-3">
+              <div class="collapse" id="dataSecurity">
+                The most effective way to demonstrate
+                GDPR compliance is to conduct a data protection impact assessment (DPIA),
+                article 35. Among other things, the DPIA must include the purpose of the processing,
+                the types of data you process, who has access to it in the organization, any third parties
+                (and their location) who have access, and how you plan to protect
+                the data (such as encryption), and when you plan to erase it (if
+                possible). The CSP should also provide your company with all
+                this data access information. Therefore, the CSP should prepare
+                its DPIA to keep track of all cloud accesses. This issue can be
+                agreed upon when signing the SLA with the CSP. Your company
+                will need to ask the CSP for their DPIA to complete their DPIA.
+              </div>
+            </label>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="tab-checklist-box">
+    <div class="small-title">
+      <h5>
+        <i class="fa fa-balance-scale"></i> Lawful basis and transparency
+      </h5>
+    </div>
+    <div class="checklist-box">
+      <div class="tabnav tab-data">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a href="#tab-1-1" class="nav-link active" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Conduct an information audit to determine what information you process and who has access to it. </a>
+          </li>
+          <li class="nav-item">
+            <a href="#tab-1-2" class="nav-link" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Have a legal justification for your data processing activities. </a>
+          </li>
+          <li class="nav-item">
+            <a href="#tab-1-3" class="nav-link" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Provide clear information about your data processing and legal justification in your privacy policy. </a>
+          </li>
+        </ul>
+        <div class="tab-content" id="content-1">
+          <div class="card tab-pane active show fade" role="tabpanel" id="tab-1-1">
+            <div class="card-header" role="tab" id="heading-1-1">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a class="collapsed" data-toggle="collapse" href="#collapse-1-1" data-parent="#content-1"
+                  aria-expanded="false" aria-controls="collapse-1-1">
+                  Conduct an information audit to determine what information you process and who has access to it. </a>
+              </h5>
+            </div>
+            <div id="collapse-1-1" class="collapse" role="tabpanel" aria-labelledby="heading-1-1" style="">
+              <div class="card-body">
+                <p>Organizations that have at least 250 employees or conduct higher-risk data processing are required to
+                  keep an up-to-date and detailed <a
+                    href="https://gdpr.eu/article-30-records-of-processing-activities/">list of their processing
+                    activities</a> and be prepared to show that list to regulators upon request. The best way to
+                  demonstrate GDPR compliance is using a <a
+                    href="https://gdpr.eu/data-protection-impact-assessment-template/">data protection impact
+                    assessment</a> Organizations with fewer than 250 employees should also conduct an assessment because
+                  it will make complying with the GDPR's other requirements easier. In your list, you should include:
+                  the purposes of the processing, what kind of data you process, who has access to it in your
+                  organization, any third parties (and where they are located) that have access, what you're doing to
+                  protect the data (e.g. encryption), and when you plan to erase it (if possible).</p>
+              </div>
+            </div>
+          </div>
+          <div class="card tab-pane fade" role="tabpanel" id="tab-1-2">
+            <div class="card-header" role="tab" id="heading-1-2">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a data-toggle="collapse" href="#collapse-1-2" data-parent="#content-1" aria-expanded="false"
+                  aria-controls="collapse-1-2" class="collapsed">
+                  Have a legal justification for your data processing activities. </a>
+              </h5>
+            </div>
+            <div id="collapse-1-2" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-2">
+              <div class="card-body">
+                <p>Processing of data is illegal under the GDPR unless you can justify it according to one of six
+                  conditions listed in <a href="https://gdpr.eu/article-6-how-to-process-personal-data-legally/">Article
+                    6</a>. There are other provisions related to children and special categories of personal data in <a
+                    href="https://gdpr.eu/tag/chapter-2/">Articles 7-11</a>. Review these provisions, choose a lawful
+                  basis for processing, and document your rationale. Note that if you choose "consent" as your lawful
+                  basis, there are <a href="https://gdpr.eu/gdpr-consent-requirements/">extra obligations</a>, including
+                  giving data subjects the ongoing opportunity to revoke consent. If "legitimate interests" is your
+                  lawful basis, you must be able to demonstrate you have conducted a privacy impact assessment.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card tab-pane fade" role="tabpanel" id="tab-1-3">
+            <div class="card-header" role="tab" id="heading-1-3">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a data-toggle="collapse" href="#collapse-1-3" data-parent="#content-1" aria-expanded="false"
+                  aria-controls="collapse-1-3" class="collapsed">
+                  Provide clear information about your data processing and legal justification in your privacy policy.
+                </a>
+              </h5>
+            </div>
+            <div id="collapse-1-3" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-3">
+              <div class="card-body">
+                <p>You need to tell people that you're collecting their data and why (<a
+                    href="https://gdpr.eu/article-12-how-controllers-should-provide-personal-data-to-the-subject/">Article
+                    12</a>). You should explain how the data is processed, who has access to it, and how you're keeping
+                  it safe. This information should be included in your privacy policy and provided to data subjects at
+                  the time you collect their data. It must be presented "in a concise, transparent, intelligible and
+                  easily accessible form, using clear and plain language, in particular for any information addressed
+                  specifically to a child."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="tab-checklist-box">
+    <div class="small-title">
+      <h5>
+        <i class="fa fa-balance-scale"></i> Lawful basis and transparency
+      </h5>
+    </div>
+    <div class="checklist-box">
+      <div class="tabnav tab-data">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a href="#tab-1-1" class="nav-link active" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Conduct an information audit to determine what information you process and who has access to it. </a>
+          </li>
+          <li class="nav-item">
+            <a href="#tab-1-2" class="nav-link" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Have a legal justification for your data processing activities. </a>
+          </li>
+          <li class="nav-item">
+            <a href="#tab-1-3" class="nav-link" data-toggle="tab" role="tab">
+              <em class="fa"></em>
+              Provide clear information about your data processing and legal justification in your privacy policy. </a>
+          </li>
+        </ul>
+        <div class="tab-content" id="content-1">
+          <div class="card tab-pane active show fade" role="tabpanel" id="tab-1-1">
+            <div class="card-header" role="tab" id="heading-1-1">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a class="collapsed" data-toggle="collapse" href="#collapse-1-1" data-parent="#content-1"
+                  aria-expanded="false" aria-controls="collapse-1-1">
+                  Conduct an information audit to determine what information you process and who has access to it. </a>
+              </h5>
+            </div>
+            <div id="collapse-1-1" class="collapse" role="tabpanel" aria-labelledby="heading-1-1" style="">
+              <div class="card-body">
+                <p>Organizations that have at least 250 employees or conduct higher-risk data processing are required to
+                  keep an up-to-date and detailed <a
+                    href="https://gdpr.eu/article-30-records-of-processing-activities/">list of their processing
+                    activities</a> and be prepared to show that list to regulators upon request. The best way to
+                  demonstrate GDPR compliance is using a <a
+                    href="https://gdpr.eu/data-protection-impact-assessment-template/">data protection impact
+                    assessment</a> Organizations with fewer than 250 employees should also conduct an assessment because
+                  it will make complying with the GDPR's other requirements easier. In your list, you should include:
+                  the purposes of the processing, what kind of data you process, who has access to it in your
+                  organization, any third parties (and where they are located) that have access, what you're doing to
+                  protect the data (e.g. encryption), and when you plan to erase it (if possible).</p>
+              </div>
+            </div>
+          </div>
+          <div class="card tab-pane fade" role="tabpanel" id="tab-1-2">
+            <div class="card-header" role="tab" id="heading-1-2">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a data-toggle="collapse" href="#collapse-1-2" data-parent="#content-1" aria-expanded="false"
+                  aria-controls="collapse-1-2" class="collapsed">
+                  Have a legal justification for your data processing activities. </a>
+              </h5>
+            </div>
+            <div id="collapse-1-2" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-2">
+              <div class="card-body">
+                <p>Processing of data is illegal under the GDPR unless you can justify it according to one of six
+                  conditions listed in <a href="https://gdpr.eu/article-6-how-to-process-personal-data-legally/">Article
+                    6</a>. There are other provisions related to children and special categories of personal data in <a
+                    href="https://gdpr.eu/tag/chapter-2/">Articles 7-11</a>. Review these provisions, choose a lawful
+                  basis for processing, and document your rationale. Note that if you choose "consent" as your lawful
+                  basis, there are <a href="https://gdpr.eu/gdpr-consent-requirements/">extra obligations</a>, including
+                  giving data subjects the ongoing opportunity to revoke consent. If "legitimate interests" is your
+                  lawful basis, you must be able to demonstrate you have conducted a privacy impact assessment.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card tab-pane fade" role="tabpanel" id="tab-1-3">
+            <div class="card-header" role="tab" id="heading-1-3">
+              <h5 class="mb-0">
+                <em class="fa"></em>
+                <a data-toggle="collapse" href="#collapse-1-3" data-parent="#content-1" aria-expanded="false"
+                  aria-controls="collapse-1-3" class="collapsed">
+                  Provide clear information about your data processing and legal justification in your privacy policy.
+                </a>
+              </h5>
+            </div>
+            <div id="collapse-1-3" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-3">
+              <div class="card-body">
+                <p>You need to tell people that you're collecting their data and why (<a
+                    href="https://gdpr.eu/article-12-how-controllers-should-provide-personal-data-to-the-subject/">Article
+                    12</a>). You should explain how the data is processed, who has access to it, and how you're keeping
+                  it safe. This information should be included in your privacy policy and provided to data subjects at
+                  the time you collect their data. It must be presented "in a concise, transparent, intelligible and
+                  easily accessible form, using clear and plain language, in particular for any information addressed
+                  specifically to a child."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#test" aria-expanded="true"
+          aria-controls="test" value="">
+          <div class="small-title">
+            <h5>
+              <i class="fa fa-balance-scale"></i> Lawful basis and transparency
+            </h5>
+          </div>
+        </button>
+      </h5>
+    </div>
+
+    <div class="collapse" id="test">
+      <div class="card-body">
+        <div class="tab-checklist-box">
+          <div class="checklist-box">
+            <div class="tabnav tab-data">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a href="#tab-1-1" class="nav-link active" data-toggle="tab" role="tab">
+                    <em class="fa"></em>
+                    Conduct an information audit to determine what information you process and who has access to it.
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tab-1-2" class="nav-link" data-toggle="tab" role="tab">
+                    <em class="fa"></em>
+                    Have a legal justification for your data processing activities. </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#tab-1-3" class="nav-link" data-toggle="tab" role="tab">
+                    <em class="fa"></em>
+                    Provide clear information about your data processing and legal justification in your privacy policy.
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content" id="content-1">
+                <div class="card tab-pane active show fade" role="tabpanel" id="tab-1-1">
+                  <div class="card-header" role="tab" id="heading-1-1">
+                    <h5 class="mb-0">
+                      <em class="fa"></em>
+                      <a class="collapsed" data-toggle="collapse" href="#collapse-1-1" data-parent="#content-1"
+                        aria-expanded="false" aria-controls="collapse-1-1">
+                        Conduct an information audit to determine what information you process and who has access to it.
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapse-1-1" class="collapse" role="tabpanel" aria-labelledby="heading-1-1" style="">
+                    <div class="card-body">
+                      <p>Organizations that have at least 250 employees or conduct higher-risk data processing are
+                        required to
+                        keep an up-to-date and detailed <a
+                          href="https://gdpr.eu/article-30-records-of-processing-activities/">list of their processing
+                          activities</a> and be prepared to show that list to regulators upon request. The best way to
+                        demonstrate GDPR compliance is using a <a
+                          href="https://gdpr.eu/data-protection-impact-assessment-template/">data protection impact
+                          assessment</a> Organizations with fewer than 250 employees should also conduct an assessment
+                        because
+                        it will make complying with the GDPR's other requirements easier. In your list, you should
+                        include:
+                        the purposes of the processing, what kind of data you process, who has access to it in your
+                        organization, any third parties (and where they are located) that have access, what you're doing
+                        to
+                        protect the data (e.g. encryption), and when you plan to erase it (if possible).</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card tab-pane fade" role="tabpanel" id="tab-1-2">
+                  <div class="card-header" role="tab" id="heading-1-2">
+                    <h5 class="mb-0">
+                      <em class="fa"></em>
+                      <a data-toggle="collapse" href="#collapse-1-2" data-parent="#content-1" aria-expanded="false"
+                        aria-controls="collapse-1-2" class="collapsed">
+                        Have a legal justification for your data processing activities. </a>
+                    </h5>
+                  </div>
+                  <div id="collapse-1-2" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-2">
+                    <div class="card-body">
+                      <p>Processing of data is illegal under the GDPR unless you can justify it according to one of six
+                        conditions listed in <a
+                          href="https://gdpr.eu/article-6-how-to-process-personal-data-legally/">Article
+                          6</a>. There are other provisions related to children and special categories of personal data
+                        in <a href="https://gdpr.eu/tag/chapter-2/">Articles 7-11</a>. Review these provisions, choose a
+                        lawful
+                        basis for processing, and document your rationale. Note that if you choose "consent" as your
+                        lawful
+                        basis, there are <a href="https://gdpr.eu/gdpr-consent-requirements/">extra obligations</a>,
+                        including
+                        giving data subjects the ongoing opportunity to revoke consent. If "legitimate interests" is
+                        your
+                        lawful basis, you must be able to demonstrate you have conducted a privacy impact assessment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card tab-pane fade" role="tabpanel" id="tab-1-3">
+                  <div class="card-header" role="tab" id="heading-1-3">
+                    <h5 class="mb-0">
+                      <em class="fa"></em>
+                      <a data-toggle="collapse" href="#collapse-1-3" data-parent="#content-1" aria-expanded="false"
+                        aria-controls="collapse-1-3" class="collapsed">
+                        Provide clear information about your data processing and legal justification in your privacy
+                        policy.
+                      </a>
+                    </h5>
+                  </div>
+                  <div id="collapse-1-3" class="collapse fade" role="tabpanel" aria-labelledby="heading-1-3">
+                    <div class="card-body">
+                      <p>You need to tell people that you're collecting their data and why (<a
+                          href="https://gdpr.eu/article-12-how-controllers-should-provide-personal-data-to-the-subject/">Article
+                          12</a>). You should explain how the data is processed, who has access to it, and how you're
+                        keeping
+                        it safe. This information should be included in your privacy policy and provided to data
+                        subjects at
+                        the time you collect their data. It must be presented "in a concise, transparent, intelligible
+                        and
+                        easily accessible form, using clear and plain language, in particular for any information
+                        addressed
+                        specifically to a child."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../node_modules/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
