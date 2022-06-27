@@ -879,8 +879,6 @@
   </div>
 
   <script>
-    //Full disclosure if someone picks up this prohect after me
-    //I don't know what im doing, i am learning web dev from 0 with this page
     //I have read that for client side web-apps it is better to code in scripts inside html
     //thats why the code is embedded here
     function generate() {
@@ -894,7 +892,7 @@
       allBodys = document.getElementsByClassName('accordion-body');
 
       for (let i = 0; i < allChecks.length; i++) {  //Loop through all checks
-        if (!allChecks[i].checked) {    //If unchecked append corresponding
+        if (!allChecks[i].checked) {    //If unchecked append corresponding text
           sectionsAdd.push(
             new docx.Paragraph({ text: "'" + allBtns[i].innerText + "'" + " You answered: NO" + "\r", heading: docx.HeadingLevel.HEADING_2 })
           )
