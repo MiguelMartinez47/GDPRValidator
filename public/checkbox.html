@@ -250,7 +250,7 @@
     <input id="submit" class="btn btn-primary" type="submit" value="Next" onclick="checkBeforeChange()">
   </div>
 
-  <a href="resources/dpia-template-v1.docx" id="abc">jhg</a>
+  <a href="resources/dpia-template-v1.docx" id="abc">test</a>
 
   <script type="text/javascript">
     var elimChecks = document.querySelectorAll('[id^=dpiaRequired_]');
@@ -264,20 +264,29 @@
   </script>
 
   <script type="text/javascript">
+    var nReqChecks = document.querySelectorAll('[id^=notRequired_]');
+    var notReqCount = 0;
+    for (let i = 0; i < nReqChecks.length; i++) {
+      nReqChecks[i].onclick = function () {
+        nReqChecks[i].checked ? notReqCount++ : notReqCount
+      };
+    }
+  </script>
+
+  <script type="text/javascript">
     function checkBeforeChange() {
       const required = localStorage.getItem('dpiaReq');
 
-      if ( required == 'true'){
+      if (required == 'true') {
         alert("You have checked one or more data processing scenarios that suppose a sensible data processing, therefore completing a Data Protection Impact Assesment (DPIA) is required. You will be provided with a tamplate for this at the end of this process.")
       }
 
-      window.location.href = './companyDataForm2.html';
-      // for (let i = 0; i < elimChecks.length; i++) {
-      //   if (elimChecks[i].checked) {
-      //     localStorage.setItem('dpiaReq', 'true');
-      //   }
-      // }
-
+      if ( notReqCount != 3 && required == 'false' ) {
+        alert("You have not answered all the questions, please if your company's activity does not match any of the given options, select 'other' in all three.");
+      } else if ( notReqCount == 3 && required == 'false' ) {
+        alert("The options you have chosen imply that the processing carried out at your company is low risk, therefore the rest of this process will require your information for drafting the documentation provided and you will not need a data processing impact assesment.");
+        window.location.href = './companyDataForm2.html';
+      }
     }
   </script>
 

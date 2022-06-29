@@ -71,15 +71,6 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
-
-
-    .visible {
-      visibility: visible !important;
-    }
-
-    .invisible {
-      visibility: hidden !important;
-    }
   </style>
 
 
@@ -238,7 +229,7 @@
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue</button>
+            <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit">Continue</button>
         </form>
 
       </div>
@@ -247,20 +238,28 @@
   </div>
 
   <script type="text/javascript">
+    var contBtn = document.getElementById('continueBtn');
+
+    contBtn.onclick = function () {
+      window.location.href = './customerInfo.html';
+    }
+  </script>
+
+  <script type="text/javascript">
     function activateDPOForm() {
       var dponame = document.getElementById('dpoName');
       var dpoPhone = document.getElementById('dpoTlf');
       var dpoMail = document.getElementById('dpoemail');
       var thischeck = document.getElementById('hasdpo');
 
-      if (thischeck.checked){
+      if (thischeck.checked) {
         change('dpoName', 'required');
         // alert('checked');
         dponame.prop('required', 'true');
         dpoPhone.setAttribute('required', 'true');
         dpoMail.setAttribute('required', 'true');
-      }else
-        alert('unchecked');
+      }
+      // alert('unchecked');
     }
   </script>
 
