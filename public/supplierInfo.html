@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+    <title>GDPRValidator</title>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="styles/form-validation.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="cover-container d-flex p-3 flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">GDPRValidator</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
+                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="main.html">Tool</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="checklists.html">Checklist</a>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+    <div class="container">
+        <main>
+            <div class="container p-3">
+                <form class="needs-validation" novalidate>
+                    <div class="card mb-auto">
+                        <div class="card-header"><b>Does your company process data of self-employed suppliers?
+                                (considered a natural person)</b></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" data-bs-toggle="collapse" href="#suppDataProcessed"
+                                        aria-expanded="false" aria-controls="suppDataProcessed" type="radio"
+                                        name="flexRadioDefault" id="yesSuppInfo">
+                                    <label class="form-check-label" for="yesSuppInfo">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="noSuppInfo">
+                                    <label class="form-check-label" for="noSuppInfo">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="collapse row" id="suppDataProcessed">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Mark the categories of personal from suppliers that are
+                                    processed
+                                </h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+
+                                    <label class="form-check-label" for="supplierDataCat_1">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="supplierDataCat_1" />
+                                        Identification of a natural person (name, surname, social security number,
+                                        email, postal address, telephone number, other ID numbers)</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input" type="checkbox" value="" id="supplierDataCat_5" />
+                                    <label class="form-check-label" for="supplierDataCat_5">Bank account
+                                        details</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Mark the purpose of this processing</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_1" />
+                                    <label class="form-check-label" for="dataPurp_1">Supply orders</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_2" />
+                                    <label class="form-check-label" for="dataPurp_2">Invoicing or billing</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container p-3">
+                <form class="needs-validation" novalidate>
+                    <div class="card mb-auto">
+                        <div class="card-header"><b>Does your company process images from video-surveillance?</b></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="yesVideo"
+                                        onclick="surveillanceChecked()">
+                                    <label class="form-check-label" for="yesVideo">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="yesVideo">
+                                    <label class="form-check-label" for="noVideo">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="container p-3">
+                <div class="d-grid col-2 mx-auto">
+                    <input id="continue" class="btn btn-primary" type="button" value="Continue">
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script type="text/javascript">
+        var noCheck = document.getElementById('noSuppInfo');
+
+        noCheck.onclick = function () {
+            window.location.href = './customerInfo.html';
+        }
+    </script>
+
+    <script type="text/javascript">
+        var contBtn = document.getElementById('continue');
+        var yesCheck = document.getElementById('yesVideo');
+
+        contBtn.onclick = function () {
+            var videoChecked = yesCheck.checked ? 'true' : 'false';
+            localStorage.setItem('videoSurveillance', videoChecked);
+            window.location.href = './customerInfo.html';
+
+        }
+    </script>
+
+
+
+    <script src="../src/bootstrap.bundle.min.js"></script>
+
+    <script src="../src/form-validation.js"></script>
+</body>
+
+</html>
