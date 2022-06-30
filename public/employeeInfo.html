@@ -95,29 +95,26 @@
 
     <div class="b-example-divider"></div>
 
-
     <div class="container">
         <main>
             <div class="container p-3">
                 <form class="needs-validation" novalidate>
                     <div class="card mb-auto">
-                        <div class="card-header"><b>Does your company process personal data of current clients
-                                (natural
-                                persons)?</b></div>
+                        <div class="card-header"><b>Does your company process personal data employees?</b></div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-check col-md-3">
-                                    <input class="form-check-input" data-bs-toggle="collapse" href="#dataProcessed"
-                                        aria-expanded="false" aria-controls="dataProcessed" type="radio"
-                                        name="flexRadioDefault" id="yesCustomerInfo">
-                                    <label class="form-check-label" for="yesCustomerInfo">
+                                    <input class="form-check-input" data-bs-toggle="collapse"
+                                        href="#employDataProcessed" aria-expanded="false" aria-controls="dataProcessed"
+                                        type="radio" name="flexRadioDefault" id="yesEmployInfo">
+                                    <label class="form-check-label" for="yesEmployInfo">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check col-md-3">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="noCustomerInfo">
-                                    <label class="form-check-label" for="noCustomerInfo">
+                                        id="noEmployInfo">
+                                    <label class="form-check-label" for="noEmployInfo">
                                         No
                                     </label>
                                 </div>
@@ -126,44 +123,45 @@
                         </div>
                     </div>
 
-                    <!-- <div class="container center"> -->
-
-                    <!-- </div> -->
-
                 </form>
             </div>
 
             <div class="container">
-                <div class="collapse row" id="dataProcessed">
+                <div class="collapse row" id="employDataProcessed">
                     <div class="col-8">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Mark the categories of personal data you are
-                                    processing</h5>
+                            <div class="card-header">
+                                <h5 class="card-title">Mark the categories of personal from employees that are processed
+                                </h5>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
 
-                                    <label class="form-check-label" for="customerDataCat_1">
+                                    <label class="form-check-label" for="employeeDataCat_1">
                                         <input class="form-check-input" type="checkbox" value=""
-                                            id="customerDataCat_1" />
-                                        identification of natural people (name, email, postal address, telephone number,
-                                        other
-                                        ID numbers)</label>
+                                            id="employeeDataCat_1" />
+                                        Identification of a natural person (name, surname, social security number,
+                                        email,
+                                        postal address, telephone number, other ID numbers)</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">Personal
+                                    <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_2" />
+                                    <label class="form-check-label" for="employeeDataCat_2">Personal
                                         characteristics (age, sex, nationality, marital status)</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_3" />
-                                    <label class="form-check-label" for="customerDataCat_3">Data regarding
+                                    <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_3" />
+                                    <label class="form-check-label" for="employeeDataCat_3">Data regarding
                                         academic results</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_4" />
-                                    <label class="form-check-label" for="customerDataCat_4">Bank account
+                                    <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_4" />
+                                    <label class="form-check-label" for="employeeDataCat_4">Data regarding
+                                        professional history</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_5" />
+                                    <label class="form-check-label" for="employeeDataCat_5">Bank account
                                         details</label>
                                 </li>
                             </ul>
@@ -172,23 +170,23 @@
 
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-header">
                                 <h5 class="card-title">Mark the purposes for the processing</h5>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_1" />
-                                    <label class="form-check-label" for="dataPurp_1">Providing the service
-                                        hired</label>
+                                    <label class="form-check-label" for="dataPurp_1">Managing payment</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_2" />
-                                    <label class="form-check-label" for="dataPurp_2">invoicing or billing</label>
+                                    <label class="form-check-label" for="dataPurp_2">Employee training</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_3" />
-                                    <label class="form-check-label" for="dataPurp_3">Send advertising via
-                                        email</label>
+
+                                    <label class="form-check-label" for="dataPurp_3">
+                                        <input class="form-check-input" type="checkbox" value="" id="dataPurp_3" />
+                                        Managing professional relation with the company</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_4" />
@@ -198,65 +196,114 @@
                         </div>
                     </div>
 
-                    <div class="container p-4">
-                        <h4 class="mb-3">Recipients categories</h4>
-                    </div>
 
-                    <div class="col-6">
+                    <div class="container p-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Legal obligations compliance</h5>
+                            <div class="card-header">
+                                <h5 class="card-title">Mark the source where you get your employees' data from</h5>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-
-                                    <label class="form-check-label" for="customerRecipaCat_1">
+                                    <label class="form-check-label" for="potentialSource_1">
                                         <input class="form-check-input" type="checkbox" value=""
-                                            id="customerRecipaCat_1" />
-                                        National or state taxes administration</label>
+                                            id="potentialSource_1" />
+                                        It is provided by themselves
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">National or state social
-                                        security institution</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_3" />
-                                    <label class="form-check-label" for="customerRecipaCat_3">Financial entities</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_4" />
-                                    <label class="form-check-label" for="customerRecipaCat_4">Judicial
-                                        authorities</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_5" />
-                                    <label class="form-check-label" for="customerRecipaCat_5">Others (must
-                                        specify in the template)</label>
+                                    <label class="form-check-label" for="potentialSource_2">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="potentialSource_2" />
+                                        It is obtained from an employment agency which the employees previously
+                                        provided their data to
+                                    </label>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Others</h5>
+                    
+                    <div class="container p-3">
+                        <form class="needs-validation" novalidate>
+                            <div class="card mb-auto">
+                                <div class="card-header"><b>Is the payment management carried out by an external
+                                        administration?</b></div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-check col-md-3">
+                                            <input class="form-check-input" data-bs-toggle="collapse"
+                                                href="#adminAgencyData" aria-expanded="false"
+                                                aria-controls="adminAgencyData" type="radio" name="flexRadioDefault"
+                                                id="yesExtAdmin">
+                                            <label class="form-check-label" for="yesExtAdmin">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-md-3">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="noExtAdmin">
+                                            <label class="form-check-label" for="noExtAdmin">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="customerOtherRecipaCat_1" />
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Administrative
-                                        agencies</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="customerOtherRecipaCat_2" />
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Similar activity
-                                        third-parties (must specify in the template)</label>
-                                </li>
-                            </ul>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container p-4">
+                <div class="collapse" id="adminAgencyData">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Administrative Agency</h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="companyName" class="form-label">Administrative agency name</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" class="form-control" id="printingName" placeholder=""
+                                                required>
+                                            <div class="invalid-feedback">
+                                                The administrative agency's name is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                            Number</label>
+                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
+                                            value="" required>
+                                        <div class="invalid-feedback">
+                                            A valid T.I.N. is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Please enter the administrative agency's address.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="activityDesc" class="form-label">Service provided
+                                            description</label>
+                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
+                                            required></textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter a description of the administrative agency's service.
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -272,11 +319,8 @@
         </main>
     </div>
 
-
-
-
     <script type="text/javascript">
-        var noCheck = document.getElementById('noCustomerInfo');
+        var noCheck = document.getElementById('noemployeeInfo');
 
         noCheck.onclick = function () {
             window.location.href = './index.html';

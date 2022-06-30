@@ -101,9 +101,8 @@
             <div class="container p-3">
                 <form class="needs-validation" novalidate>
                     <div class="card mb-auto">
-                        <div class="card-header"><b>Does your company process personal data of current clients
-                                (natural
-                                persons)?</b></div>
+                        <div class="card-header"><b>Does your company process personal data of potential clients
+                                (natural persons)?</b></div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-check col-md-3">
@@ -125,152 +124,267 @@
 
                         </div>
                     </div>
-
-                    <!-- <div class="container center"> -->
-
-                    <!-- </div> -->
-
                 </form>
             </div>
 
-            <div class="container">
-                <div class="collapse row" id="dataProcessed">
-                    <div class="col-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Mark the categories of personal data you are
-                                    processing</h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
+            <div class="collapse container p-3 row" id="dataProcessed">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Mark the categories of personal data from your potential clients you
+                                are processing</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
 
-                                    <label class="form-check-label" for="customerDataCat_1">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="customerDataCat_1" />
-                                        identification of natural people (name, email, postal address, telephone number,
-                                        other
-                                        ID numbers)</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">Personal
-                                        characteristics (age, sex, nationality, marital status)</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_3" />
-                                    <label class="form-check-label" for="customerDataCat_3">Data regarding
-                                        academic results</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_4" />
-                                    <label class="form-check-label" for="customerDataCat_4">Bank account
-                                        details</label>
-                                </li>
-                            </ul>
+                                <label class="form-check-label" for="customerDataCat_1">
+                                    <input class="form-check-input" type="checkbox" value="" id="customerDataCat_1" />
+                                    identification of natural people (name, email, postal address, telephone number,
+                                    other
+                                    ID numbers)</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="customerDataCat_2" />
+                                <label class="form-check-label" for="customerDataCat_2">Personal
+                                    characteristics (age, sex, nationality, marital status)</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="checkbox" value="" id="customerDataCat_3" />
+                                <label class="form-check-label" for="customerDataCat_3">Data regarding
+                                    academic results</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Mark the source of your potential clients' data</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="potentialSource_1">
+                                    <input class="form-check-input" type="checkbox" value="" id="potentialSource_1" />
+                                    Obtained from the potential clients themselves
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="potentialSource_2">
+                                    <input class="form-check-input" type="checkbox" value="" id="potentialSource_2" />
+                                    Provided by a third company (must specify)
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container p-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Mark the third-parties whom you deliver your potential clients' data
+                                to</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="potentialTP_1">
+                                    <input class="form-check-input" data-bs-toggle="collapse"
+                                        href="#marketingAgencyData" aria-expanded="false"
+                                        aria-controls="marketingAgencyData" type="checkbox" name="flexRadioDefault"
+                                        id="potentialTP_1">
+                                    Marketing agencys
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="potentialTP_2">
+                                    <input class="form-check-input" data-bs-toggle="collapse" href="#printingAgencyData"
+                                        aria-expanded="false" aria-controls="printingAgencyData" type="checkbox"
+                                        name="flexRadioDefault" id="potentialTP_2">
+                                    Printing companies
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                                <label class="form-check-label" for="potentialTP_3">
+                                    <input class="form-check-input" type="radio" name="notShared" id="dataNotShared"
+                                        value="notShared">
+                                    We don't share the potential customers' data
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container p-4">
+                    <div class="collapse" id="marketingAgencyData">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Marketing Agency</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="needs-validation" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="companyName" class="form-label">Marketing agency Name</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control" id="marketingName"
+                                                    placeholder="" required>
+                                                <div class="invalid-feedback">
+                                                    Your compnay's name is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                                Number</label>
+                                            <input type="text" class="form-control" id="marketingTIN" placeholder=""
+                                                value="" required>
+                                            <div class="invalid-feedback">
+                                                A valid T.I.N. is required.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="marketingAddress" placeholder=""
+                                                required>
+                                            <div class="invalid-feedback">
+                                                Please enter your company's address.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="activityDesc" class="form-label">Service provided
+                                                description</label>
+                                            <textarea class="form-control" aria-label="With textarea" id="marketingDesc"
+                                                required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please enter a description of the marketing agency's data processing
+                                                activities.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="container p-2"></div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Marketing Agency</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="needs-validation" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="companyName" class="form-label">Marketing agency Name</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control" id="marketingName_2"
+                                                    placeholder="" required>
+                                                <div class="invalid-feedback">
+                                                    Your compnay's name is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                                Number</label>
+                                            <input type="text" class="form-control" id="marketingTIN_2" placeholder=""
+                                                value="" required>
+                                            <div class="invalid-feedback">
+                                                A valid T.I.N. is required.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="marketingAddress_2"
+                                                placeholder="" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your company's address.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="activityDesc" class="form-label">Service provided
+                                                description</label>
+                                            <textarea class="form-control" aria-label="With textarea"
+                                                id="marketingDesc_2" required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please enter a description of the marketing agency's data processing
+                                                activities.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-4">
+                <div class="container p-4">
+                    <div class="collapse" id="printingAgencyData">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Mark the purposes for the processing</h5>
+                            <div class="card-header">
+                                <h5 class="card-title">Printing Company</h5>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_1" />
-                                    <label class="form-check-label" for="dataPurp_1">Providing the service
-                                        hired</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_2" />
-                                    <label class="form-check-label" for="dataPurp_2">invoicing or billing</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_3" />
-                                    <label class="form-check-label" for="dataPurp_3">Send advertising via
-                                        email</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="dataPurp_4" />
-                                    <label class="form-check-label" for="dataPurp_4">Post-sales service</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="container p-4">
-                        <h4 class="mb-3">Recipients categories</h4>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Legal obligations compliance</h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
+                                <form class="needs-validation" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="companyName" class="form-label">Printing company Name</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" class="form-control" id="printingName" placeholder=""
+                                                    required>
+                                                <div class="invalid-feedback">
+                                                    The printing company's name is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                                Number</label>
+                                            <input type="text" class="form-control" id="printingTIN " placeholder=""
+                                                value="" required>
+                                            <div class="invalid-feedback">
+                                                A valid T.I.N. is required.
+                                            </div>
+                                        </div>
 
-                                    <label class="form-check-label" for="customerRecipaCat_1">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="customerRecipaCat_1" />
-                                        National or state taxes administration</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">National or state social
-                                        security institution</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_3" />
-                                    <label class="form-check-label" for="customerRecipaCat_3">Financial entities</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_4" />
-                                    <label class="form-check-label" for="customerRecipaCat_4">Judicial
-                                        authorities</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_5" />
-                                    <label class="form-check-label" for="customerRecipaCat_5">Others (must
-                                        specify in the template)</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                        <div class="col-12">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="printingAddress" placeholder=""
+                                                required>
+                                            <div class="invalid-feedback">
+                                                Please enter the printing company's address.
+                                            </div>
+                                        </div>
 
-                    <div class="col-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Others</h5>
+                                        <div class="col-12">
+                                            <label for="activityDesc" class="form-label">Service provided
+                                                description</label>
+                                            <textarea class="form-control" aria-label="With textarea" id="printingDesc"
+                                                required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please enter a description of the printing company's data processing
+                                                activities.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="customerOtherRecipaCat_1" />
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Administrative
-                                        agencies</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="customerOtherRecipaCat_2" />
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Similar activity
-                                        third-parties (must specify in the template)</label>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container p-3">
-                <div class="d-grid col-2 mx-auto">
-                    <input id="continue" class="btn btn-primary" type="button" value="Continue">
-                </div>
-            </div>
-
-
         </main>
     </div>
+
+    <div class="container p-3">
+        <div class="d-grid col-2 mx-auto">
+            <input id="continue" class="btn btn-primary" type="button" value="Continue">
+        </div>
+    </div>
+
 
     <script type="text/javascript">
         var contBtn = document.getElementById('continue');
