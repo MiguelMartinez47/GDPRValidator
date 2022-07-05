@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#" class="colors">
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+  <title>GDPRValidator</title>
+
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
+  <link href="styles/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="styles/list-groups.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="cover-container d-flex p-3 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">GDPRValidator</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="main.html">Tool</a>
+          <a class="nav-link fw-bold py-1 px-0" href="checklists.html">Checklist</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+
+  <div class="b-example-divider"></div>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+
+      <div class="region region-highlighted">
+        <div data-drupal-messages-fallback class="hidden"></div>
+
+      </div>
+
+
+
+      <main>
+
+        <div class="container p-4">
+          <div class="card border-light">
+            <div class="card-body">
+              <h5 class="card-title">GDPRValidator web-app</h5>
+              <p class="card-text">
+                The main process of this application has finished, when you click on the FINISH button the program will
+                generate a
+                the provided documents in an editable format. You can also obtain the general recomendations for cloud
+                service providers that this tool provides by checking the checkbox on top of the finish button.
+
+                <b>REMEMBER</b> that, although the minimum necessary documents are provided to be in a position to
+                comply with
+                the Data Protection Regulation, you must review them and complete them where necesary (specially in the
+                case that you have required a DPIA template) and also perform the following actions:
+
+              <ol>
+                <li>
+                  <p>
+                    including information clauses in the information request forms, whether your company carries this
+                    out through paper forms or a website.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Implementing the technical and organizational measures pointed out in the corresponding document.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Reviewing the contracts your company currently use, update them accordingly with the contractual
+                    clauses and sign them on the last page.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Detailing the contracts that your company does not have yet and also include the contractual clauses
+                    and
+                    sign them in the last page.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Saving and keeping all the mentioned updated documents.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Remember that you should not send these documents to your National Data Protection Agency, unless
+                    they request them.
+                  </p>
+                </li>
+              </ol>
+              </p>
+
+              <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
+              </div> <label class="mt-md-0 mt-2">Cloud guidelines</label>
+              <div class="d-lg-flex justify-content-between align-items-center pb-4">
+                <div class="form-check" data-bs-toggle="collapse" href="#dpoForm" aria-expanded="false"
+                  aria-controls="dpoForm">
+                  <input type="checkbox" class="form-check-input" id="hasdpo" onclick="ccCheck()">
+                  <label class="form-check-label" for="same-address">Check if you want to receive the Cloud
+                    recommendations document</label>
+                </div>
+              </div>
+
+              <a id="finishBtn" class="btn btn-primary">FINISH</a>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <script type="text/javascript">
+        function ccCheck() {
+          var finBtn = document.getElementById('finishBtn');
+          var val = finBtn.checked ? 'true' : 'false'
+          localStorage.setItem('ccRecom', val);
+        }
+      </script>
+
+
+      <footer class="site-footer">
+
+        <div class="footer-wrapper">
+          <div class="region region-footer">
+            <div id="block-logofooter"
+              class="block-content-type-panopoly_widgets_image block--view-mode-full block block-block-content block-block-contente7adb034-8dc6-421e-b703-37185a86a87b">
+
+
+
+              <div
+                class="field field--name-field-panopoly-widgets-image field--type-image field--label-hidden field__item">
+                <img src="./images/uclm.png" width="200" height="100" alt="Logotipo aepd"
+                  class="image-style-panopoly-images-full" />
+
+
+              </div>
+
+            </div>
+            <div id="block-addressrrss"
+              class="block-content-type-address_and_rrss block--view-mode-full block block-block-content block-block-content255afb38-141c-408e-9b2e-bfbc30eb58b1">
+
+
+
+              <div
+                class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                <p>Avda. de España, s/n. 02071 - Albacete<br /><a href="tel:+34000000000">Tel. </a><br />
+                  <!-- Educación y Menores: <a href="tel:+34900293621">900 293 621</a> -->
+                </p>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+      </footer>
+
+      <div class="back-to-top"></div>
+
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
