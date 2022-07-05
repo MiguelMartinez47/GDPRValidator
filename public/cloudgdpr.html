@@ -101,7 +101,7 @@
   </div>
 
   <div class="b-example-divider"></div>
-  
+
   <div class="py-5 text-center">
     <h5>Cloud GDPR guidelines</h5>
   </div>
@@ -418,7 +418,10 @@
         <div id="collapse_9_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
           data-bs-parent="#accordion_9">
           <div class="accordion-body">
-            Your company must have the identification of those companies that wish to access your customer’s data before the “consent” is given, as well as the purpose of the access, the action to be carried out on the data and, in case of copying this data, the duration of storage of that copy. For each of these companies, please enter the following information: company category, the purpose for access, action.
+            Your company must have the identification of those companies that wish to access your customer’s data before
+            the “consent” is given, as well as the purpose of the access, the action to be carried out on the data and,
+            in case of copying this data, the duration of storage of that copy. For each of these companies, please
+            enter the following information: company category, the purpose for access, action.
           </div>
         </div>
       </div>
@@ -462,12 +465,20 @@
           children: sectionsAdd,
         }]
       });
+
+      var newwin = window.open("companyDataForm2.html");
+      newwin.onload = () => {
+        newwin.doc = doc;
+      };
+
       //Save doc
       docx.Packer.toBlob(doc).then((blob) => {
         saveAs(blob, "checklistResults.docx");
       });
 
-      window.location.href = './companyDataForm2.html';
+
+      // window.doc = doc;
+      // window.location.href = './companyDataForm2.html';
     }
 
   </script>
