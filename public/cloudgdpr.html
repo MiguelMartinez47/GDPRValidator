@@ -16,7 +16,6 @@
     if (dpiaRequired === null) {
       localStorage.setItem('dpiaReq', 'false');
     }
-    console.log(dpiaRequired);
   </script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
@@ -465,23 +464,16 @@
           children: sectionsAdd,
         }]
       });
-
-      var newwin = window.open("companyDataForm2.html");
-      newwin.onload = () => {
-        newwin.doc = doc;
-      };
-
       //Save doc
       docx.Packer.toBlob(doc).then((blob) => {
-        saveAs(blob, "checklistResults.docx");
+        saveAs(blob, "CloudGDPRGuidelines.docx");
+      }).then((blob) => {
+        window.location.assign('companyDataForm2.html');
       });
-
-
-      // window.doc = doc;
-      // window.location.href = './companyDataForm2.html';
     }
 
   </script>
+
 
   <script src="../src/bootstrap.bundle.min.js"></script>
 

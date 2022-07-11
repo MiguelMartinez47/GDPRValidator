@@ -277,14 +277,13 @@
     function checkBeforeChange() {
       const required = localStorage.getItem('dpiaReq');
 
-      if (required == 'true') {
-        alert("You have checked one or more data processing scenarios that suppose a sensible data processing, therefore completing a Data Protection Impact Assesment (DPIA) is required. You will be provided with a tamplate for this at the end of this process.")
-      }
-
-      if ( notReqCount != 3 && required == 'false' ) {
+      if (notReqCount != 3 && required == 'false') {
         alert("You have not answered all the questions, please if your company's activity does not match any of the given options, select 'other' in all three.");
-      } else if ( notReqCount == 3 && required == 'false' ) {
+      } else if (notReqCount == 3 && required == 'false') {
         alert("The options you have chosen imply that the processing carried out at your company is low risk, therefore the rest of this process will require your information for drafting the documentation provided and you will not need a data processing impact assesment.");
+        window.location.href = './checklists.html';
+      } else if (required == 'true') {
+        alert("You have checked one or more data processing scenarios that suppose a sensible data processing, therefore completing a Data Protection Impact Assesment (DPIA) is required. You will be provided with a tamplate for this at the end of this process.")
         window.location.href = './checklists.html';
       }
     }

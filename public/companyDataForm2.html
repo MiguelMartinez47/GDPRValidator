@@ -110,11 +110,13 @@
 
       <div class="row g-5">
         <h4 class="mb-3">Fill in company data</h4>
-        <form class="needs-validation" novalidate>
+
+
+        <form class="needs-validation" novalidate id="mainForm">
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="companyTIN" class="form-label">T.I.N. Tax Identification Number</label>
-              <input type="text" class="form-control" id="companyTIN " placeholder="" value="" required>
+              <input type="text" class="form-control" id="companyTIN" placeholder="" value="" required>
               <div class="invalid-feedback">
                 A valid T.I.N. is required.
               </div>
@@ -142,7 +144,7 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Contact Email </label>
-              <input type="email" class="form-control" id="email" placeholder="info@yourcompany.com" required>
+              <input type="email" class="form-control" id="infoEmail" placeholder="info@yourcompany.com" required>
               <div class="invalid-feedback">
                 Please enter a valid email address.
               </div>
@@ -150,7 +152,7 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email for the exercise of data subject rights </label>
-              <input type="email" class="form-control" id="email" placeholder="subjectrights.gdpr@yourcompany.com"
+              <input type="email" class="form-control" id="rightsEmail" placeholder="subjectrights.gdpr@yourcompany.com"
                 required>
               <div class="invalid-feedback">
                 Please enter a valid email address for the exercise of data subject rights.
@@ -172,7 +174,7 @@
 
             <div class="col-12">
               <label for="activityDesc" class="form-label">Company's Activity Description</label>
-              <textarea class="form-control" aria-label="With textarea" required></textarea>
+              <textarea id="activityDesc" class="form-control" aria-label="With textarea" required></textarea>
               <div class="invalid-feedback">
                 Please enter a description of your company’s data processing activities.
               </div>
@@ -202,103 +204,107 @@
             </div>
 
             <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
-            </div> <label class="mt-md-0 mt-2">Company Size</label>
+            </div> <label class="mt-md-0 mt-2">Data Protection Officer</label>
             <div class="d-lg-flex justify-content-between align-items-center pb-4">
               <div class="form-check" data-bs-toggle="collapse" href="#dpoForm" aria-expanded="false"
                 aria-controls="dpoForm">
-                <input type="checkbox" class="form-check-input" id="hasdpo" onclick="activateDPOForm()">
+                <input type="checkbox" class="form-check-input" id="hasdpo" onclick="dpoData()">
                 <label class="form-check-label" for="same-address">The company has designated a DPO</label>
               </div>
             </div>
 
-            <div class="collapse" id="dpoForm">
-              <div class="row g-5">
-                <h4 class="mb-3">Fill in DPO data</h4>
-                <form class="needs-validation" novalidate>
-                  <div class="row g-3">
-                    <div class="col-sm-6">
-                      <label for="dpoName" class="form-label">Full Name</label>
-                      <input type="text" class="form-control" id="dpoName " placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        A valid Name is required.
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <label for="dpoTlf" class="form-label">Telephone Number</label>
-                      <input type="text" class="form-control" id="dpoTlf" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid phone is required.
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="email" class="form-label">Contact Email </label>
-                      <input type="email" class="form-control" id="dpoemail" placeholder="dpo@info.com" required>
-                      <div class="invalid-feedback">
-                        Please enter a valid email address.
-                      </div>
-                    </div>
-
-                  </div>
-
-              </div>
-            </div>
-
             <hr class="my-4">
-
-            <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit">Continue</button>
         </form>
 
+        <form class="needs-validation collapse" novalidate id="dpoForm">
+          <!-- <div class="collapse" > -->
+          <div class="row g-5">
+            <h4 class="mb-3">Fill in DPO data</h4>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="dpoName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="dpoName" placeholder="" value="">
+                <div class="invalid-feedback">
+                  A valid Name is required.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="dpoTlf" class="form-label">Telephone Number</label>
+                <input type="text" class="form-control" id="dpoTlf" placeholder="" value="">
+                <div class="invalid-feedback">
+                  Valid phone is required.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">Contact Email </label>
+                <input type="email" class="form-control" id="dpoemail" placeholder="dpo@info.com">
+                <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- </div> -->
+        </form>
+        <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit">Continue</button>
       </div>
     </main>
 
   </div>
 
-  <script>
-    function get() {
-      console.log(doc); 
-
-      //Save doc
-      docx.Packer.toBlob(doc).then((blob) => {
-        saveAs(blob, "checklistResults.docx");
-      });
-    }
-  </script>
-
-  <input type="button" value="Get" onclick="get()" />
-
   <script type="text/javascript">
-    var contBtn = document.getElementById('continueBtn');
 
-    contBtn.onclick = function () {
-      window.location.href = './supplierInfo.html';
-    }
-  </script>
+    function dpoData() {
+      var check = document.getElementById('hasdpo');
+      var name = document.getElementById('dpoName');
+      var tlf = document.getElementById('dpoTlf');
+      var mail = document.getElementById('dpoemail')
 
-  <script type="text/javascript">
-    function activateDPOForm() {
-      var dponame = document.getElementById('dpoName');
-      var dpoPhone = document.getElementById('dpoTlf');
-      var dpoMail = document.getElementById('dpoemail');
-      var thischeck = document.getElementById('hasdpo');
-
-      if (thischeck.checked) {
-        change('dpoName', 'required');
-        // alert('checked');
-        dponame.prop('required', 'true');
-        dpoPhone.setAttribute('required', 'true');
-        dpoMail.setAttribute('required', 'true');
+      if (check.checked) {
+        name.required = true;
+        tlf.required = true;
+        mail.required = true;
+      } else {
+        name.required = false;
+        tlf.required = false;
+        mail.required = false;
       }
-      // alert('unchecked');
     }
   </script>
-
 
 
   <script src="../src/bootstrap.bundle.min.js"></script>
 
   <script src="../src/form-validation.js"></script>
+
+  <script type="text/javascript">
+    var contBtn = document.getElementById('continueBtn');
+    contBtn.onclick = function () {
+      // var fields = document.getElementsByClassName("form-control");
+
+      var check = document.getElementById('hasdpo');
+      var values = new Array();
+      
+
+      Array.from(document.getElementById("mainForm").elements).forEach(form => {
+        values.push(form.value);
+      });
+
+      if (check.checked) {
+        Array.from(document.getElementById("dpoForm").elements).forEach(form => {
+          values.push(form.value);
+        });
+      }
+
+      alert(values);
+
+      window.location.href = './supplierInfo.html';
+    }
+  </script>
 </body>
 
 </html>

@@ -16,7 +16,6 @@
     if (dpiaRequired === null) {
       localStorage.setItem('dpiaReq', 'false');
     }
-    console.log(dpiaRequired);
   </script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
@@ -673,12 +672,10 @@
       });
       //Save doc
       docx.Packer.toBlob(doc).then((blob) => {
-        // console.log(blob);
-        saveAs(blob, "checklistResults.docx");
-        // console.log("Doc created")
+        saveAs(blob, "GenerealGDPRGuidelines.docx");
+      }).then((blob) => {
+        window.location.assign('cloudgdpr.html');
       });
-
-      window.location.href = './cloudgdpr.html';
     }
 
   </script>
