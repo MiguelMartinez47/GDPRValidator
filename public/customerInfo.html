@@ -394,71 +394,77 @@
         var contBtn = document.getElementById('continue');
 
         contBtn.onclick = function () {
-            //Get processing categories checks and labels in arrays to store checked ones
-            var catChecks = document.querySelectorAll('[id^=customerDataCat_]');
-            var catLabels = document.querySelectorAll('[id^=categLabel_]');
-            //Same for purposes
-            var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
-            var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
-            //Recipients
-            var recipChecks = document.querySelectorAll('[id^=customerRecipCat_]');
-            var recipLabels = document.querySelectorAll('[id^=recipLabel_]');
-            //Others
-            var othersCheck = document.getElementById('customerOtherRecipaCat_1');
-            var othersLabel = document.getElementById('recipLabel_1');
-            var othersCheck_2 = document.getElementById('customerOtherRecipaCat_2');
+            let promise = new Promise((resolve, reject) => {
+                //Get processing categories checks and labels in arrays to store checked ones
+                var catChecks = document.querySelectorAll('[id^=customerDataCat_]');
+                var catLabels = document.querySelectorAll('[id^=categLabel_]');
+                //Same for purposes
+                var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
+                var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
+                //Recipients
+                var recipChecks = document.querySelectorAll('[id^=customerRecipCat_]');
+                var recipLabels = document.querySelectorAll('[id^=recipLabel_]');
+                //Others
+                var othersCheck = document.getElementById('customerOtherRecipaCat_1');
+                var othersLabel = document.getElementById('recipLabel_1');
+                var othersCheck_2 = document.getElementById('customerOtherRecipaCat_2');
 
-            var categories = new Array();
-            var purposes = new Array();
-            var legalRecipients = new Array();
-            var adminAgenData = new Array();
-            var otherCompData = new Array();
+                var categories = new Array();
+                var purposes = new Array();
+                var legalRecipients = new Array();
+                var adminAgenData = new Array();
+                var otherCompData = new Array();
 
-            //Add categories
-            for (let i = 0; i < catChecks.length; i++) {
-                if (catChecks[i].checked) {
-                    categories.push(catLabels[i].innerText);
+                //Add categories
+                for (let i = 0; i < catChecks.length; i++) {
+                    if (catChecks[i].checked) {
+                        categories.push(catLabels[i].innerText);
+                    }
+                };
+                //Add purposes
+                for (let i = 0; i < purpChecks.length; i++) {
+                    if (purpChecks[i].checked) {
+                        purposes.push(purpLabels[i].innerText);
+                    }
+                };
+                //Add legal recipients, skip last because the value comes from text field not from label
+                for (let i = 0; i < recipChecks.length - 1; i++) {
+                    if (recipChecks[i].checked) {
+                        legalRecipients.push(recipLabels[i].innerText);
+                    }
+                };
+                if (recipChecks[recipChecks.length - 1].checked) {
+                    legalRecipients.push(document.getElementById('othersText').value);
                 }
-            };
-            //Add purposes
-            for (let i = 0; i < purpChecks.length; i++) {
-                if (purpChecks[i].checked) {
-                    purposes.push(purpLabels[i].innerText);
+                //last get values from 'others' forms if they are checked
+                if (othersCheck.checked) {
+                    Array.from(document.getElementById("AdminAgenData").elements).forEach(form => {
+                        adminAgenData.push(form.value);
+                    });
+                    if (adminAgenData.length > 0)
+                        localStorage.setItem('clientAdminAgen', JSON.stringify(adminAgenData));
                 }
-            };
-            //Add legal recipients, skip last because the value comes from text field not from label
-            for (let i = 0; i < recipChecks.length - 1; i++) {
-                if (recipChecks[i].checked) {
-                    legalRecipients.push(recipLabels[i].innerText);
+                if (othersCheck_2.checked) {
+                    Array.from(document.getElementById("otherCompData").elements).forEach(form => {
+                        otherCompData.push(form.value);
+                    });
+                    if (otherCompData.length > 0)
+                        localStorage.setItem('otherCompany', JSON.stringify(otherCompData));
                 }
-            };
-            if (recipChecks[recipChecks.length - 1].checked) {
-                legalRecipients.push(document.getElementById('othersText').value);
-            }
-            //last get values from 'others' forms if they are checked
-            if (othersCheck.checked) {
-                Array.from(document.getElementById("AdminAgenData").elements).forEach(form => {
-                    adminAgenData.push(form.value);
-                });
-                if (adminAgenData.length > 0)
-                    localStorage.setItem('clientAdminAgen', JSON.stringify(adminAgenData));
-            }
-            if (othersCheck_2.checked) {
-                Array.from(document.getElementById("otherCompData").elements).forEach(form => {
-                    otherCompData.push(form.value);
-                });
-                if (otherCompData.length > 0)
-                    localStorage.setItem('otherCompany', JSON.stringify(otherCompData));
-            }
+                
+                if (categories.length > 0)
+                    localStorage.setItem('clientDataCats', JSON.stringify(categories));
+                if (purposes.length > 0)
+                    localStorage.setItem('clientDataPurps', JSON.stringify(purposes));
+                if (legalRecipients.length > 0)
+                    localStorage.setItem('clientLegalRecips', JSON.stringify(legalRecipients));
 
-            if (categories.length > 0)
-                localStorage.setItem('clientDataCats', JSON.stringify(categories));
-            if (purposes.length > 0)
-                localStorage.setItem('clientDataPurps', JSON.stringify(purposes));
-            if (legalRecipients.length > 0)
-                localStorage.setItem('clientLegalRecips', JSON.stringify(legalRecipients));
+                resolve(true);
+            })
 
-            window.location.href = './employeeInfo.html';
+            promise.then((successMessage) => {
+                window.location.assign('./employeeInfo.html');
+            });
         }
     </script>
 

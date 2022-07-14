@@ -247,7 +247,8 @@
             </div>
           </div>
         </form>
-        <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit">Continue</button>
+        <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit"
+          onclick="retreivevalues()">Continue</button>
       </div>
     </main>
 
@@ -275,32 +276,41 @@
 
   <script src="../src/bootstrap.bundle.min.js"></script>
 
-  <script src="../src/form-validation.js"></script>
+  <!-- <script src="../src/form-validation.js"></script> -->
 
   <script type="text/javascript">
-    var contBtn = document.getElementById('continueBtn');
-    contBtn.onclick = function () {
-      // var fields = document.getElementsByClassName("form-control");
+    function retreivevalues() {
+      try {
+        console.log("Empieza");
+        let promise = new Promise((resolve, reject) => {
+          console.log("Empieza  PROMESA");
+          var check = document.getElementById('hasdpo');
+          var values = new Array();
+          var dpo = new Array();
 
-      var check = document.getElementById('hasdpo');
-      var values = new Array();
 
+          Array.from(document.getElementById("mainForm").elements).forEach(form => {
+            values.push(form.value);
+          });
 
-      Array.from(document.getElementById("mainForm").elements).forEach(form => {
-        values.push(form.value);
-      });
+          if (check.checked) {
+            Array.from(document.getElementById("dpoForm").elements).forEach(form => {
+              dpo.push(form.value);
+            });
+          }
 
-      if (check.checked) {
-        Array.from(document.getElementById("dpoForm").elements).forEach(form => {
-          values.push(form.value);
+          localStorage.setItem('companyData', JSON.stringify(values));
+          localStorage.setItem('dpoData', JSON.stringify(dpo));
+          resolve(true);
+        })
+
+        promise.then((successMessage) => {
+          console.log("Empieza cambio");
+          window.location.assign('./checkbox.html');
         });
-      }
-
-
-      localStorage.setItem('companyData', JSON.stringify(values));
-      alert(JSON.stringify(values));
-
-      window.location.href = './checkbox.html';
+      } catch( ex ){
+        alert(ex);
+      } 
     }
   </script>
 </body>

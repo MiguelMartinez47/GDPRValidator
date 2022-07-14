@@ -276,27 +276,32 @@
         contBtn.onclick = function () {
 
             if (document.getElementById('yesTPs').checked) {
-                var firstTP = new Array();
-                var secondTP = new Array();
+                let promise = new Promise((resolve, reject) => {
+                    var firstTP = new Array();
+                    var secondTP = new Array();
 
 
-                Array.from(document.getElementById('firstTPInfo').elements).forEach(form => {
-                    firstTP.push(form.value);
+                    Array.from(document.getElementById('firstTPInfo').elements).forEach(form => {
+                        firstTP.push(form.value);
+                    });
+
+                    Array.from(document.getElementById('secondTPInfo').elements).forEach(form => {
+                        secondTP.push(form.value);
+                    });
+
+                    if (firstTP.length == 4)
+                        localStorage.setItem('firstTPData', JSON.stringify(firstTP));
+                    if (secondTP.length == 4)
+                        localStorage.setItem('secondTPData', JSON.stringify(secondTP));
+
+                    resolve(true);
+                })
+
+                promise.then((successMessage) => {
+                    window.location.assign('./mainProcFinal.html');
                 });
-
-                Array.from(document.getElementById('secondTPInfo').elements).forEach(form => {
-                    secondTP.push(form.value);
-                });
-
-                if (firstTP.length == 4)
-                    localStorage.setItem('firstTPData', JSON.stringify(firstTP));
-                if (secondTP.length == 4)
-                    localStorage.setItem('secondTPData', JSON.stringify(secondTP));
-
-            }
-
-            // window.location.href = './mainProcFinal.html';
-
+            } else
+                window.location.assign('./mainProcFinal.html');
         }
     </script>
 

@@ -333,58 +333,63 @@
         var contBtn = document.getElementById('continue');
 
         contBtn.onclick = function () {
-            //Get processing categories checks and labels in arrays to store checked ones
-            var catChecks = document.querySelectorAll('[id^=employeeDataCat_]');
-            var catLabels = document.querySelectorAll('[id^=categLabel_]');
-            //Same for purposes
-            var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
-            var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
-            //Source
-            var sourceChecks = document.querySelectorAll('[id^=potentialSource_]');
-            var sourceLabels = document.querySelectorAll('[id^=sourceLabel_]');
-            //Others
-            var adminAgenCheck = document.getElementById('yesExtAdmin');
+            let promise = new Promise((resolve, reject) => {
+                //Get processing categories checks and labels in arrays to store checked ones
+                var catChecks = document.querySelectorAll('[id^=employeeDataCat_]');
+                var catLabels = document.querySelectorAll('[id^=categLabel_]');
+                //Same for purposes
+                var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
+                var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
+                //Source
+                var sourceChecks = document.querySelectorAll('[id^=potentialSource_]');
+                var sourceLabels = document.querySelectorAll('[id^=sourceLabel_]');
+                //Others
+                var adminAgenCheck = document.getElementById('yesExtAdmin');
 
-            var categories = new Array();
-            var purposes = new Array();
-            var sources = new Array();
-            var adminAgenData = new Array();
+                var categories = new Array();
+                var purposes = new Array();
+                var sources = new Array();
+                var adminAgenData = new Array();
 
-            //Add categories
-            for (let i = 0; i < catChecks.length; i++) {
-                if (catChecks[i].checked) {
-                    categories.push(catLabels[i].innerText);
+                //Add categories
+                for (let i = 0; i < catChecks.length; i++) {
+                    if (catChecks[i].checked) {
+                        categories.push(catLabels[i].innerText);
+                    }
+                };
+                //Add purposes
+                for (let i = 0; i < purpChecks.length; i++) {
+                    if (purpChecks[i].checked) {
+                        purposes.push(purpLabels[i].innerText);
+                    }
+                };
+                //Add legal recipients, skip last because the value comes from text field not from label
+                for (let i = 0; i < sourceChecks.length; i++) {
+                    if (sourceChecks[i].checked) {
+                        sources.push(sourceLabels[i].innerText);
+                    }
+                };
+                //last get values from 'others' forms if they are checked
+                if (adminAgenCheck.checked) {
+                    Array.from(document.getElementById("dataAdminAgency").elements).forEach(form => {
+                        adminAgenData.push(form.value);
+                    });
+                    if (adminAgenData.length > 0)
+                        localStorage.setItem('employeeAdminAgen', JSON.stringify(adminAgenData));
                 }
-            };
-            //Add purposes
-            for (let i = 0; i < purpChecks.length; i++) {
-                if (purpChecks[i].checked) {
-                    purposes.push(purpLabels[i].innerText);
-                }
-            };
-            //Add legal recipients, skip last because the value comes from text field not from label
-            for (let i = 0; i < sourceChecks.length; i++) {
-                if (sourceChecks[i].checked) {
-                    sources.push(sourceLabels[i].innerText);
-                }
-            };
-            //last get values from 'others' forms if they are checked
-            if (adminAgenCheck.checked) {
-                Array.from(document.getElementById("dataAdminAgency").elements).forEach(form => {
-                    adminAgenData.push(form.value);
-                });
-                if (adminAgenData.length > 0)
-                    localStorage.setItem('employeeAdminAgen', JSON.stringify(adminAgenData));
-            }
+                if (categories.length > 0)
+                    localStorage.setItem('employeeDataCats', JSON.stringify(categories));
+                if (purposes.length > 0)
+                    localStorage.setItem('employeeDataPurps', JSON.stringify(purposes));
+                if (sources.length > 0)
+                    sources.setItem('employeeDataSources', JSON.stringify(sources));
 
-            if (categories.length > 0)
-                localStorage.setItem('employeeDataCats', JSON.stringify(categories));
-            if (purposes.length > 0)
-                localStorage.setItem('employeeDataPurps', JSON.stringify(purposes));
-            if (sources.length > 0)
-                sources.setItem('employeeDataSources', JSON.stringify(sources));
+                resolve(true);
+            })
 
-            window.location.href = './otherTPsInfo.html';
+            promise.then((successMessage) => {
+                window.location.assign('./otherTPsInfo.html');
+            });
         }
 
         function adminAgenChecked() {
