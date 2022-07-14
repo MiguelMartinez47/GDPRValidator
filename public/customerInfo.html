@@ -125,11 +125,6 @@
 
                         </div>
                     </div>
-
-                    <!-- <div class="container center"> -->
-
-                    <!-- </div> -->
-
                 </form>
             </div>
 
@@ -144,7 +139,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
 
-                                    <label class="form-check-label" for="customerDataCat_1">
+                                    <label id="categLabel_1" class="form-check-label" for="customerDataCat_1">
                                         <input class="form-check-input" type="checkbox" value=""
                                             id="customerDataCat_1" />
                                         identification of natural people (name, email, postal address, telephone number,
@@ -153,17 +148,19 @@
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="customerDataCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">Personal
+                                    <label id="categLabel_2" class="form-check-label" for="customerDataCat_2">Personal
                                         characteristics (age, sex, nationality, marital status)</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="customerDataCat_3" />
-                                    <label class="form-check-label" for="customerDataCat_3">Data regarding
+                                    <label id="categLabel_3" class="form-check-label" for="customerDataCat_3">Data
+                                        regarding
                                         academic results</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="customerDataCat_4" />
-                                    <label class="form-check-label" for="customerDataCat_4">Bank account
+                                    <label id="categLabel_4" class="form-check-label" for="customerDataCat_4">Bank
+                                        account
                                         details</label>
                                 </li>
                             </ul>
@@ -178,21 +175,27 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_1" />
-                                    <label class="form-check-label" for="dataPurp_1">Providing the service
-                                        hired</label>
+                                    <label class="form-check-label" for="dataPurp_1" id="purpLabel_1">
+                                        Providing the service hired
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_2" />
-                                    <label class="form-check-label" for="dataPurp_2">invoicing or billing</label>
+                                    <label class="form-check-label" for="dataPurp_2" id="purpLabel_2">
+                                        invoicing or billing
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_3" />
-                                    <label class="form-check-label" for="dataPurp_3">Send advertising via
-                                        email</label>
+                                    <label class="form-check-label" for="dataPurp_3" id="purpLabel_3">
+                                        Send advertising via email
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_4" />
-                                    <label class="form-check-label" for="dataPurp_4">Post-sales service</label>
+                                    <label class="form-check-label" for="dataPurp_4" id="purpLabel_4">
+                                        Post-sales service
+                                    </label>
                                 </li>
                             </ul>
                         </div>
@@ -210,29 +213,31 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
 
-                                    <label class="form-check-label" for="customerRecipaCat_1">
+                                    <label class="form-check-label" for="customerRecipCat_1" id="recipLabel_1">
                                         <input class="form-check-input" type="checkbox" value=""
-                                            id="customerRecipaCat_1" />
+                                            id="customerRecipCat_1" />
                                         National or state taxes administration</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_2" />
-                                    <label class="form-check-label" for="customerDataCat_2">National or state social
+                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipCat_2" />
+                                    <label class="form-check-label" for="customerRecipCat_2" id="recipLabel_2">National
+                                        or state social
                                         security institution</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_3" />
-                                    <label class="form-check-label" for="customerRecipaCat_3">Financial entities</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipCat_3" />
+                                    <label class="form-check-label" for="customerRecipCat_3" id="recipLabel_3">
+                                        Financial entities</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipaCat_4" />
-                                    <label class="form-check-label" for="customerRecipaCat_4">Judicial
+                                    <input class="form-check-input" type="checkbox" value="" id="customerRecipCat_4" />
+                                    <label class="form-check-label" for="customerRecipCat_4" id="recipLabel_4">Judicial
                                         authorities</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" data-bs-toggle="collapse" href="#othersText"
                                         aria-expanded="false" aria-controls="othersText" type="checkbox"
-                                        name="flexRadioDefault" id="customerRecipaCat_5">
+                                        name="flexRadioDefault" id="customerRecipCat_5">
                                     <label class="form-check-label" for="customerRecipaCat_5">Others</label>
                                     <input class="collapse" type="text" id="othersText">
                                 </li>
@@ -249,146 +254,257 @@
                                 <li class="list-group-item">
                                     <input class="form-check-input" data-bs-toggle="collapse" href="#adminAgencyData"
                                         aria-expanded="false" aria-controls="adminAgencyData" type="checkbox"
-                                        name="flexRadioDefault" id="customerOtherRecipaCat_1">
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Administrative
-                                        agencies</label>
+                                        name="flexRadioDefault" id="customerOtherRecipaCat_1"
+                                        onclick="adminAgenChecked()">
+                                    <label class="form-check-label" for="customerOtherRecipaCat_1"
+                                        id="otherLabel_1">Administrative agencies</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" data-bs-toggle="collapse" href="#similarCompData"
                                         aria-expanded="false" aria-controls="similarCompData" type="checkbox"
-                                        name="flexRadioDefault" id="customerOtherRecipaCat_2">
-                                    <label class="form-check-label" for="customerOtherRecipaCat_1">Similar activity
+                                        name="flexRadioDefault" id="customerOtherRecipaCat_2"
+                                        onclick="otherCompChecked()">
+                                    <label class="form-check-label" for="customerOtherRecipaCat_2"
+                                        id="otherLabel_2">Similar activity
                                         third-parties</label>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="container p-4">
-                <div class="collapse" id="adminAgencyData">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Administrative Agency</h5>
-                        </div>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="companyName" class="form-label">Administrative agency name</label>
-                                        <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                The administrative agency's name is required.
+                    <div class="container p-4">
+                        <div class="collapse" id="adminAgencyData">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Administrative Agency</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form class="needs-validation" novalidate id="AdminAgenData">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <label for="agencyName" class="form-label">Administrative agency
+                                                    name</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control" id="agencyName">
+                                                    <div class="invalid-feedback">
+                                                        The administrative agency's name is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="agencyTIN" class="form-label">T.I.N. Tax Identification
+                                                    Number</label>
+                                                <input type="text" class="form-control" id="agencyTIN">
+                                                <div class="invalid-feedback">
+                                                    A valid T.I.N. is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="agencyAddress" class="form-label">Address</label>
+                                                <input type="text" class="form-control" id="agencyAddress">
+                                                <div class="invalid-feedback">
+                                                    Please enter the administrative agency's address.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="agencyDesc" class="form-label">Service provided
+                                                    description</label>
+                                                <textarea class="form-control" aria-label="With textarea"
+                                                    id="agencyDesc"></textarea>
+                                                <div class="invalid-feedback">
+                                                    Please enter a description of the administrative agency's service.
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
-                                            Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
-                                        <div class="invalid-feedback">
-                                            A valid T.I.N. is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Please enter the administrative agency's address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
-                                            description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter a description of the administrative agency's service.
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container p-4">
+                        <div class="collapse" id="similarCompData">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Other Company</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form class="needs-validation" novalidate id="otherCompData">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <label for="otherCompName" class="form-label">Similar company
+                                                    name</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control" id="otherCompName">
+                                                    <div class="invalid-feedback">
+                                                        The company's name is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="otherCompTIN" class="form-label">T.I.N. Tax Identification
+                                                    Number</label>
+                                                <input type="text" class="form-control" id="otherCompTIN">
+                                                <div class="invalid-feedback">
+                                                    A valid T.I.N. is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="otherCompAddress" class="form-label">Address</label>
+                                                <input type="text" class="form-control" id="otherCompAddress">
+                                                <div class="invalid-feedback">
+                                                    Please enter the company's address.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="otherCompDesc" class="form-label">Service provided
+                                                    description</label>
+                                                <textarea class="form-control" aria-label="With textarea"
+                                                    id="otherCompDesc"></textarea>
+                                                <div class="invalid-feedback">
+                                                    Please enter a description of the company's service.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container p-3">
+                        <div class="d-grid col-2 mx-auto">
+                            <input id="continue" class="btn btn-primary" type="submit" value="Continue">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container p-4">
-                <div class="collapse" id="similarCompData">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Other Company</h5>
-                        </div>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="companyName" class="form-label">Similar company name</label>
-                                        <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                The company's name is required.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
-                                            Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
-                                        <div class="invalid-feedback">
-                                            A valid T.I.N. is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Please enter the company's address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
-                                            description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter a description of the company's service.
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container p-3">
-                <div class="d-grid col-2 mx-auto">
-                    <input id="continue" class="btn btn-primary" type="button" value="Continue">
-                </div>
-            </div>
-
-
         </main>
     </div>
+
+    <script src="../src/bootstrap.bundle.min.js"></script>
+
+    <script src="../src/form-validation.js"></script>
 
     <script type="text/javascript">
         var contBtn = document.getElementById('continue');
 
         contBtn.onclick = function () {
-            window.location.href = './potentialCustomerInfo.html';
+            //Get processing categories checks and labels in arrays to store checked ones
+            var catChecks = document.querySelectorAll('[id^=customerDataCat_]');
+            var catLabels = document.querySelectorAll('[id^=categLabel_]');
+            //Same for purposes
+            var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
+            var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
+            //Recipients
+            var recipChecks = document.querySelectorAll('[id^=customerRecipCat_]');
+            var recipLabels = document.querySelectorAll('[id^=recipLabel_]');
+            //Others
+            var othersCheck = document.getElementById('customerOtherRecipaCat_1');
+            var othersLabel = document.getElementById('recipLabel_1');
+            var othersCheck_2 = document.getElementById('customerOtherRecipaCat_2');
+
+            var categories = new Array();
+            var purposes = new Array();
+            var legalRecipients = new Array();
+            var adminAgenData = new Array();
+            var otherCompData = new Array();
+
+            //Add categories
+            for (let i = 0; i < catChecks.length; i++) {
+                if (catChecks[i].checked) {
+                    categories.push(catLabels[i].innerText);
+                }
+            };
+            //Add purposes
+            for (let i = 0; i < purpChecks.length; i++) {
+                if (purpChecks[i].checked) {
+                    purposes.push(purpLabels[i].innerText);
+                }
+            };
+            //Add legal recipients, skip last because the value comes from text field not from label
+            for (let i = 0; i < recipChecks.length - 1; i++) {
+                if (recipChecks[i].checked) {
+                    legalRecipients.push(recipLabels[i].innerText);
+                }
+            };
+            if (recipChecks[recipChecks.length - 1].checked) {
+                legalRecipients.push(document.getElementById('othersText').value);
+            }
+            //last get values from 'others' forms if they are checked
+            if (othersCheck.checked) {
+                Array.from(document.getElementById("AdminAgenData").elements).forEach(form => {
+                    adminAgenData.push(form.value);
+                });
+                if (adminAgenData.length > 0)
+                    localStorage.setItem('clientAdminAgen', JSON.stringify(adminAgenData));
+            }
+            if (othersCheck_2.checked) {
+                Array.from(document.getElementById("otherCompData").elements).forEach(form => {
+                    otherCompData.push(form.value);
+                });
+                if (otherCompData.length > 0)
+                    localStorage.setItem('otherCompany', JSON.stringify(otherCompData));
+            }
+
+            if (categories.length > 0)
+                localStorage.setItem('clientDataCats', JSON.stringify(categories));
+            if (purposes.length > 0)
+                localStorage.setItem('clientDataPurps', JSON.stringify(purposes));
+            if (legalRecipients.length > 0)
+                localStorage.setItem('clientLegalRecips', JSON.stringify(legalRecipients));
+
+            window.location.href = './employeeInfo.html';
+        }
+    </script>
+
+    <script type="text/javascript">
+        function adminAgenChecked() {
+            var check = document.getElementById('customerOtherRecipaCat_1');
+            var name = document.getElementById('agencyName');
+            var tin = document.getElementById('agencyTIN');
+            var address = document.getElementById('agencyAddress');
+            var desc = document.getElementById('agencyDesc')
+
+
+            if (check.checked) {
+                name.required = true;
+                tin.required = true;
+                address.required = true;
+                desc.required = true;
+            } else {
+                name.required = false;
+                tin.required = false;
+                address.required = false;
+                desc.required = false;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function otherCompChecked() {
+            var check = document.getElementById('customerOtherRecipaCat_2');
+            var name = document.getElementById('otherCompName');
+            var tin = document.getElementById('otherCompTIN');
+            var address = document.getElementById('otherCompAddress');
+            var desc = document.getElementById('otherCompDesc')
+
+
+            if (check.checked) {
+                name.required = true;
+                tin.required = true;
+                address.required = true;
+                desc.required = true;
+            } else {
+                name.required = false;
+                tin.required = false;
+                address.required = false;
+                desc.required = false;
+            }
         }
     </script>
 
@@ -402,9 +518,7 @@
     </script>
 
 
-    <script src="../src/bootstrap.bundle.min.js"></script>
 
-    <script src="../src/form-validation.js"></script>
 </body>
 
 </html>

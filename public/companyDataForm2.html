@@ -202,9 +202,11 @@
                 Zip code required.
               </div>
             </div>
+        </form>
 
-            <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
-            </div> <label class="mt-md-0 mt-2">Data Protection Officer</label>
+        <form id="check">
+          <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
+            <label class="mt-md-0 mt-2">Data Protection Officer</label>
             <div class="d-lg-flex justify-content-between align-items-center pb-4">
               <div class="form-check" data-bs-toggle="collapse" href="#dpoForm" aria-expanded="false"
                 aria-controls="dpoForm">
@@ -212,12 +214,10 @@
                 <label class="form-check-label" for="same-address">The company has designated a DPO</label>
               </div>
             </div>
-
-            <hr class="my-4">
+          </div>
         </form>
 
         <form class="needs-validation collapse" novalidate id="dpoForm">
-          <!-- <div class="collapse" > -->
           <div class="row g-5">
             <h4 class="mb-3">Fill in DPO data</h4>
             <div class="row g-3">
@@ -244,11 +244,8 @@
                   Please enter a valid email address.
                 </div>
               </div>
-
             </div>
-
           </div>
-          <!-- </div> -->
         </form>
         <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit">Continue</button>
       </div>
@@ -257,7 +254,6 @@
   </div>
 
   <script type="text/javascript">
-
     function dpoData() {
       var check = document.getElementById('hasdpo');
       var name = document.getElementById('dpoName');
@@ -288,7 +284,7 @@
 
       var check = document.getElementById('hasdpo');
       var values = new Array();
-      
+
 
       Array.from(document.getElementById("mainForm").elements).forEach(form => {
         values.push(form.value);
@@ -300,7 +296,9 @@
         });
       }
 
-      alert(values);
+
+      localStorage.setItem('companyData', JSON.stringify(values));
+      alert(JSON.stringify(values));
 
       window.location.href = './checkbox.html';
     }

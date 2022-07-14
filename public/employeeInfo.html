@@ -105,8 +105,9 @@
                             <div class="row">
                                 <div class="form-check col-md-3">
                                     <input class="form-check-input" data-bs-toggle="collapse"
-                                        href="#employDataProcessed" aria-expanded="false" aria-controls="dataProcessed"
-                                        type="radio" name="flexRadioDefault" id="yesEmployInfo">
+                                        href="#employDataProcessed" aria-expanded="false"
+                                        aria-controls="employDataProcessed" type="radio" name="flexRadioDefault"
+                                        id="yesEmployInfo">
                                     <label class="form-check-label" for="yesEmployInfo">
                                         Yes
                                     </label>
@@ -137,7 +138,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
 
-                                    <label class="form-check-label" for="employeeDataCat_1">
+                                    <label class="form-check-label" for="employeeDataCat_1" id="categLabel_1">
                                         <input class="form-check-input" type="checkbox" value=""
                                             id="employeeDataCat_1" />
                                         Identification of a natural person (name, surname, social security number,
@@ -146,22 +147,25 @@
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_2" />
-                                    <label class="form-check-label" for="employeeDataCat_2">Personal
+                                    <label class="form-check-label" for="employeeDataCat_2" id="categLabel_2">Personal
                                         characteristics (age, sex, nationality, marital status)</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_3" />
-                                    <label class="form-check-label" for="employeeDataCat_3">Data regarding
+                                    <label class="form-check-label" for="employeeDataCat_3" id="categLabel_3">Data
+                                        regarding
                                         academic results</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_4" />
-                                    <label class="form-check-label" for="employeeDataCat_4">Data regarding
+                                    <label class="form-check-label" for="employeeDataCat_4" id="categLabel_4">Data
+                                        regarding
                                         professional history</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="employeeDataCat_5" />
-                                    <label class="form-check-label" for="employeeDataCat_5">Bank account
+                                    <label class="form-check-label" for="employeeDataCat_5" id="categLabel_5">Bank
+                                        account
                                         details</label>
                                 </li>
                             </ul>
@@ -176,21 +180,24 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_1" />
-                                    <label class="form-check-label" for="dataPurp_1">Managing payment</label>
+                                    <label class="form-check-label" for="dataPurp_1" id="purpLabel_1">Managing
+                                        payment</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_2" />
-                                    <label class="form-check-label" for="dataPurp_2">Employee training</label>
+                                    <label class="form-check-label" for="dataPurp_2" id="purpLabel_2">Employee
+                                        training</label>
                                 </li>
                                 <li class="list-group-item">
 
-                                    <label class="form-check-label" for="dataPurp_3">
+                                    <label class="form-check-label" for="dataPurp_3" id="purpLabel_3">
                                         <input class="form-check-input" type="checkbox" value="" id="dataPurp_3" />
                                         Managing professional relation with the company</label>
                                 </li>
                                 <li class="list-group-item">
                                     <input class="form-check-input" type="checkbox" value="" id="dataPurp_4" />
-                                    <label class="form-check-label" for="dataPurp_4">Post-sales service</label>
+                                    <label class="form-check-label" for="dataPurp_4" id="purpLabel_4">Post-sales
+                                        service</label>
                                 </li>
                             </ul>
                         </div>
@@ -204,17 +211,15 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <label class="form-check-label" for="potentialSource_1">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="potentialSource_1" />
-                                        It is provided by themselves
+                                    <label class="form-check-label" for="potentialSource_1" id="sourceLabel_1">
+                                        <input class="form-check-input" type="checkbox" id="potentialSource_1">It is
+                                        provided by themselves
                                     </label>
                                 </li>
                                 <li class="list-group-item">
-                                    <label class="form-check-label" for="potentialSource_2">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="potentialSource_2" />
-                                        It is obtained from an employment agency which the employees previously
+                                    <label class="form-check-label" for="potentialSource_2" id="sourceLabel_2">
+                                        <input class="form-check-input" type="checkbox" id="potentialSource_2">It is
+                                        obtained from an employment agency which the employees previously
                                         provided their data to
                                     </label>
                                 </li>
@@ -233,7 +238,7 @@
                                             <input class="form-check-input" data-bs-toggle="collapse"
                                                 href="#adminAgencyData" aria-expanded="false"
                                                 aria-controls="adminAgencyData" type="radio" name="flexRadioDefault"
-                                                id="yesExtAdmin">
+                                                id="yesExtAdmin" onclick="adminAgenChecked()">
                                             <label class="form-check-label" for="yesExtAdmin">
                                                 Yes
                                             </label>
@@ -251,78 +256,75 @@
 
                         </form>
                     </div>
+                    <div class="container p-4">
+                        <div class="collapse" id="adminAgencyData">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Administrative Agency</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form class="needs-validation" novalidate id="dataAdminAgency">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <label for="agencyName" class="form-label">Administrative agency
+                                                    name</label>
+                                                <div class="input-group has-validation">
+                                                    <input type="text" class="form-control" id="agencyName">
+                                                    <div class="invalid-feedback">
+                                                        The administrative agency's name is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="agencyTIN" class="form-label">T.I.N. Tax Identification
+                                                    Number</label>
+                                                <input type="text" class="form-control" id="agencyTIN">
+                                                <div class="invalid-feedback">
+                                                    A valid T.I.N. is required.
+                                                </div>
+                                            </div>
 
-                </div>
-            </div>
+                                            <div class="col-12">
+                                                <label for="agencyAddress" class="form-label">Address</label>
+                                                <input type="text" class="form-control" id="agencyAddress">
+                                                <div class="invalid-feedback">
+                                                    Please enter the administrative agency's address.
+                                                </div>
+                                            </div>
 
-            <div class="container p-4">
-                <div class="collapse" id="adminAgencyData">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Administrative Agency</h5>
-                        </div>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="companyName" class="form-label">Administrative agency name</label>
-                                        <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                The administrative agency's name is required.
+                                            <div class="col-12">
+                                                <label for="agencyDesc" class="form-label">Service provided
+                                                    description</label>
+                                                <textarea class="form-control" aria-label="With textarea"
+                                                    id="agencyDesc"></textarea>
+                                                <div class="invalid-feedback">
+                                                    Please enter a description of the administrative agency's service.
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
-                                            Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
-                                        <div class="invalid-feedback">
-                                            A valid T.I.N. is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Please enter the administrative agency's address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
-                                            description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter a description of the administrative agency's service.
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container p-3">
+                        <div class="d-grid col-2 mx-auto">
+                            <input id="continue" class="btn btn-primary" type="button" value="Continue">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container p-3">
-                <div class="d-grid col-2 mx-auto">
-                    <input id="continue" class="btn btn-primary" type="button" value="Continue">
-                </div>
-            </div>
-
-
         </main>
     </div>
+
+    <script src="../src/bootstrap.bundle.min.js"></script>
+
+    <script src="../src/form-validation.js"></script>
 
     <script type="text/javascript">
         var noCheck = document.getElementById('noEmployInfo');
 
-        contBtn.onclick = function () {
+        noCheck.onclick = function () {
             window.location.assign('otherTPsInfo.html');
         }
     </script>
@@ -331,14 +333,82 @@
         var contBtn = document.getElementById('continue');
 
         contBtn.onclick = function () {
-            window.location.assign('otherTPsInfo.html');
+            //Get processing categories checks and labels in arrays to store checked ones
+            var catChecks = document.querySelectorAll('[id^=employeeDataCat_]');
+            var catLabels = document.querySelectorAll('[id^=categLabel_]');
+            //Same for purposes
+            var purpChecks = document.querySelectorAll('[id^=dataPurp_]');
+            var purpLabels = document.querySelectorAll('[id^=purpLabel_]');
+            //Source
+            var sourceChecks = document.querySelectorAll('[id^=potentialSource_]');
+            var sourceLabels = document.querySelectorAll('[id^=sourceLabel_]');
+            //Others
+            var adminAgenCheck = document.getElementById('yesExtAdmin');
+
+            var categories = new Array();
+            var purposes = new Array();
+            var sources = new Array();
+            var adminAgenData = new Array();
+
+            //Add categories
+            for (let i = 0; i < catChecks.length; i++) {
+                if (catChecks[i].checked) {
+                    categories.push(catLabels[i].innerText);
+                }
+            };
+            //Add purposes
+            for (let i = 0; i < purpChecks.length; i++) {
+                if (purpChecks[i].checked) {
+                    purposes.push(purpLabels[i].innerText);
+                }
+            };
+            //Add legal recipients, skip last because the value comes from text field not from label
+            for (let i = 0; i < sourceChecks.length; i++) {
+                if (sourceChecks[i].checked) {
+                    sources.push(sourceLabels[i].innerText);
+                }
+            };
+            //last get values from 'others' forms if they are checked
+            if (adminAgenCheck.checked) {
+                Array.from(document.getElementById("dataAdminAgency").elements).forEach(form => {
+                    adminAgenData.push(form.value);
+                });
+                if (adminAgenData.length > 0)
+                    localStorage.setItem('employeeAdminAgen', JSON.stringify(adminAgenData));
+            }
+
+            if (categories.length > 0)
+                localStorage.setItem('employeeDataCats', JSON.stringify(categories));
+            if (purposes.length > 0)
+                localStorage.setItem('employeeDataPurps', JSON.stringify(purposes));
+            if (sources.length > 0)
+                sources.setItem('employeeDataSources', JSON.stringify(sources));
+
+            window.location.href = './otherTPsInfo.html';
+        }
+
+        function adminAgenChecked() {
+            var check = document.getElementById('yesExtAdmin');
+            var name = document.getElementById('agencyName');
+            var tin = document.getElementById('agencyTIN');
+            var address = document.getElementById('agencyAddress');
+            var desc = document.getElementById('agencyDesc')
+
+
+            if (check.checked) {
+                name.required = true;
+                tin.required = true;
+                address.required = true;
+                desc.required = true;
+            } else {
+                name.required = false;
+                tin.required = false;
+                address.required = false;
+                desc.required = false;
+            }
         }
     </script>
 
-
-    <script src="../src/bootstrap.bundle.min.js"></script>
-
-    <script src="../src/form-validation.js"></script>
 </body>
 
 </html>

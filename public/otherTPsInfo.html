@@ -99,22 +99,23 @@
     <div class="container">
         <main>
             <div class="container p-3">
-                <form class="needs-validation" novalidate>
+                <form>
                     <div class="card mb-auto">
-                        <div class="card-header"><b>Does your company hire third-party services such as website maintenance, email or web hosting, software development, cleaning services or others?</b></div>
+                        <div class="card-header"><b>Does your company hire third-party services such as website
+                                maintenance, email or web hosting, software development, cleaning services or
+                                others?</b></div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-check col-md-3">
                                     <input class="form-check-input" data-bs-toggle="collapse" href="#dataTPs"
                                         aria-expanded="false" aria-controls="dataTPs" type="radio"
-                                        name="flexRadioDefault" id="yesTPs">
+                                        name="flexRadioDefault" id="yesTPs" onclick="testRequired()">
                                     <label class="form-check-label" for="yesTPs">
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check col-md-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="noTPs">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="noTPs">
                                     <label class="form-check-label" for="noTPs">
                                         No
                                     </label>
@@ -133,42 +134,39 @@
                             <h5 class="card-title">Third-Party data</h5>
                         </div>
                         <div class="card-body">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" novalidate id="firstTPInfo">
                                 <div class="row g-3">
                                     <div class="col-12">
-                                        <label for="companyName" class="form-label">Third-Party name</label>
+                                        <label for="firstTPName" class="form-label">Third-Party name</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
+                                            <input type="text" class="form-control" id="firstTPName" value="" required>
                                             <div class="invalid-feedback">
                                                 The company's name is required.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                        <label for="firstTPTIN" class="form-label">T.I.N. Tax Identification
                                             Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
+                                        <input type="text" class="form-control" id="firstTPTIN" value="" required>
                                         <div class="invalid-feedback">
                                             A valid T.I.N. is required.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
+                                        <label for="firstTPAddress" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="firstTPAddress" value="" required>
                                         <div class="invalid-feedback">
                                             Please enter the company's address.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
+                                        <label for="firstTPDesc" class="form-label">Service provided
                                             description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
+                                        <textarea class="form-control" aria-label="With textarea" id="firstTPDesc"
+                                            value="" required></textarea>
                                         <div class="invalid-feedback">
                                             Please enter a description of the company's service.
                                         </div>
@@ -185,42 +183,40 @@
                             <h5 class="card-title">Third-Party data</h5>
                         </div>
                         <div class="card-body">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" novalidate id="secondTPInfo">
                                 <div class="row g-3">
                                     <div class="col-12">
-                                        <label for="companyName" class="form-label">Third-Party name</label>
+                                        <label for="secondTPName" class="form-label">Third-Party name</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
+                                            <input type="text" class="form-control" id="secondTPName" value="" required>
                                             <div class="invalid-feedback">
                                                 The company's name is required.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
+                                        <label for="secondTPTIN" class="form-label">T.I.N. Tax Identification
                                             Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
+                                        <input type="text" class="form-control" id="secondTPTIN" value="" required>
                                         <div class="invalid-feedback">
                                             A valid T.I.N. is required.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
+                                        <label for="secondTPAddress" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="secondTPAddress" placeholder=""
+                                            value="" required>
                                         <div class="invalid-feedback">
                                             Please enter the company's address.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
+                                        <label for="secondTPDesc" class="form-label">Service provided
                                             description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
+                                        <textarea class="form-control" aria-label="With textarea" id="secondTPDesc"
+                                            value="" required></textarea>
                                         <div class="invalid-feedback">
                                             Please enter a description of the company's service.
                                         </div>
@@ -230,133 +226,83 @@
                         </div>
                     </div>
 
-                    <div class="container p-4"></div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Third-Party data</h5>
-                        </div>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="companyName" class="form-label">Third-Party name</label>
-                                        <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                The company's name is required.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
-                                            Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
-                                        <div class="invalid-feedback">
-                                            A valid T.I.N. is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Please enter the company's address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
-                                            description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter a description of the company's service.
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="container p-4 center">
+                        <p>
+                            <b>
+                                In case your company uses services from more than two third parties that require sharing
+                                personal data, they must also be included in the final documentation draft. You must
+                                include the same information fields as required in the previous forms, therefore you may
+                                use them as a template.
+                            </b>
+                        </p>
                     </div>
-
-                    <div class="container p-4"></div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Third-Party data</h5>
-                        </div>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="companyName" class="form-label">Third-Party name</label>
-                                        <div class="input-group has-validation">
-                                            <input type="text" class="form-control" id="printingName" placeholder=""
-                                                required>
-                                            <div class="invalid-feedback">
-                                                The company's name is required.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="companyTIN" class="form-label">T.I.N. Tax Identification
-                                            Number</label>
-                                        <input type="text" class="form-control" id="printingTIN " placeholder=""
-                                            value="" required>
-                                        <div class="invalid-feedback">
-                                            A valid T.I.N. is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="printingAddress" placeholder=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Please enter the company's address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="activityDesc" class="form-label">Service provided
-                                            description</label>
-                                        <textarea class="form-control" aria-label="With textarea" id="printingDesc"
-                                            required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter a description of the company's service.
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                    <div class="container p-3">
+                        <div class="d-grid col-2 mx-auto">
+                            <input id="continue" class="btn btn-primary" type="submit" value="Continue">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container p-3">
-                <div class="d-grid col-2 mx-auto">
-                    <input id="continue" class="btn btn-primary" type="button" value="Continue">
-                </div>
-            </div>
-
-
         </main>
     </div>
 
+    <script src="../src/bootstrap.bundle.min.js"></script>
+
+    <script src="../src/form-validation.js"></script>
+
     <script type="text/javascript">
+
+        function testRequired() {
+            if (document.getElementById('yesTPs').checked) {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }
+        }
+
         var contBtn = document.getElementById('continue');
 
         contBtn.onclick = function () {
-            window.location.href = './mainProcFinal.html';
+
+            if (document.getElementById('yesTPs').checked) {
+                var firstTP = new Array();
+                var secondTP = new Array();
+
+
+                Array.from(document.getElementById('firstTPInfo').elements).forEach(form => {
+                    firstTP.push(form.value);
+                });
+
+                Array.from(document.getElementById('secondTPInfo').elements).forEach(form => {
+                    secondTP.push(form.value);
+                });
+
+                if (firstTP.length == 4)
+                    localStorage.setItem('firstTPData', JSON.stringify(firstTP));
+                if (secondTP.length == 4)
+                    localStorage.setItem('secondTPData', JSON.stringify(secondTP));
+
+            }
+
+            // window.location.href = './mainProcFinal.html';
+
         }
     </script>
 
 
     <script type="text/javascript">
-        var noCheck = document.getElementById('noCustomerInfo');
+        var noCheck = document.getElementById('noTPs');
 
         noCheck.onclick = function () {
             window.location.assign('./mainProcFinal.html');
@@ -364,9 +310,6 @@
     </script>
 
 
-    <script src="../src/bootstrap.bundle.min.js"></script>
-
-    <script src="../src/form-validation.js"></script>
 </body>
 
 </html>
