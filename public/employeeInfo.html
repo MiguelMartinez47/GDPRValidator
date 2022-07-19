@@ -325,6 +325,7 @@
         var noCheck = document.getElementById('noEmployInfo');
 
         noCheck.onclick = function () {
+            localStorage.setItem('employData', "false");
             window.location.assign('otherTPsInfo.html');
         }
     </script>
@@ -371,6 +372,7 @@
                 };
                 //last get values from 'others' forms if they are checked
                 if (adminAgenCheck.checked) {
+                    localStorage.setItem('employAdmin', "true")
                     Array.from(document.getElementById("dataAdminAgency").elements).forEach(form => {
                         adminAgenData.push(form.value);
                     });
@@ -382,7 +384,9 @@
                 if (purposes.length > 0)
                     localStorage.setItem('employeeDataPurps', JSON.stringify(purposes));
                 if (sources.length > 0)
-                    sources.setItem('employeeDataSources', JSON.stringify(sources));
+                    localStorage.setItem('employeeDataSources', JSON.stringify(sources));
+
+                localStorage.setItem('employData', "true");
 
                 resolve(true);
             })

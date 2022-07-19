@@ -291,8 +291,10 @@
 
                     if (firstTP.length == 4)
                         localStorage.setItem('firstTPData', JSON.stringify(firstTP));
+                        localStorage.setItem('firstTP', "true");
                     if (secondTP.length == 4)
                         localStorage.setItem('secondTPData', JSON.stringify(secondTP));
+                        localStorage.setItem('secondTP', "true");
 
                     resolve(true);
                 })

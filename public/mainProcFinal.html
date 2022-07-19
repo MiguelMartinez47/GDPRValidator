@@ -5,9 +5,6 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta charset="utf-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
@@ -172,7 +169,7 @@
               <div class="d-lg-flex justify-content-between align-items-center pb-4">
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="checkReco">
-                  <label class="form-check-label" for="same-address">Check if you want to receive the Cloud
+                  <label class="form-check-label" for="checkReco">Check if you want to receive the Cloud
                     recommendations document</label>
                 </div>
               </div>
@@ -185,7 +182,7 @@
       </main>
 
       <script type="text/javascript">
-       
+
       </script>
 
       <script type="text/javascript">
@@ -206,9 +203,1511 @@
 
             document.body.removeChild(element);
           }
+
+          if (document.getElementById('checkReco').checked) {
+            generateRecommDoc();
+          }
+
+          generateInterestedInfo();
+          generateDSRights();
+          generateRPA();
+          generateDSConsent();
+          generateBreachForm();
         }
+      </script>
+
+      <script type="text/javascript">
+        function generateBreachForm() {
+          //creating an invisible element with the template as download
+          var element = document.createElement('a');
+          element.setAttribute('href', "resources/aepd-breach-form.docx");
+          element.setAttribute('download', 'aepd-breach-form');
+
+          document.body.appendChild(element);
+
+          //Simulated click to trigger download
+          element.click();
+
+          document.body.removeChild(element);
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateDSConsent() {
+          var compData = JSON.parse(localStorage.companyData);
+          let consent = new docx.Document({
+            sections: [{
+              children: [
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  text: "CUSTOMER CONSENT FORM", heading: docx.HeadingLevel.TITLE
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "Please [sign/electronically sign/check box below], date and return by [email/submit] the below:",
+                    underline: {
+                      type: docx.UnderlineType.SINGLE,
+                    },
+                    bold: true
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "I declare that I have read and understood the informative clauses detailing the processing of my personal data to be carried out by " + compData[2] + ", that have been provided along with this consent form, and therefore I provide my informed and free consent to " + compData[2] + " using my personal data for the purposes described in this notice and understand that I can withdraw my consent at any time."
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  children: [new docx.TextRun(
+                    "Name of Individual providing Consent: ____________________________________________"
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  children: [new docx.TextRun(
+                    "Address of Individual providing Consent: ____________________________________________"
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  children: [new docx.TextRun(
+                    "Date and place of Signature: ____________________________________________"
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "Signature:"
+                  )],
+                }),
+              ],
+            }]
+
+          });
+          //Save doc
+          docx.Packer.toBlob(consent).then((blob) => {
+            saveAs(blob, "CustomerConsent.docx");
+          })
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateRPA() {
+          var compData = JSON.parse(localStorage.companyData);
+          var sections = [
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "RECORDS OF PROCESSING ACTIVITIES",
+              heading: docx.HeadingLevel.TITLE
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun(
+                "Controller must review the data recorded in the sections of Records of processing activities and verify that they match the data collected, the communications made and other treatment circunstances."
+              )],
+            }),
+            new docx.Paragraph(""),];
+
+          if (localStorage.clientData == "true") {
+            var clientCats = JSON.parse(localStorage.clientDataCats);
+            var clientPurps = JSON.parse(localStorage.clientDataPurps);
+            var clientRecip = JSON.parse(localStorage.clientLegalRecips);
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "PROCESSING OF CUSTOMERS PERSONAL DATA",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "a) Details of the controller:",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Identification: " + compData[2] + " - NIF: " + compData[0],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Address: " + compData[5] + ", " + compData[6] + " in " + compData[9] + ", " + compData[8] + " - zip: " + compData[10],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Phone: " + compData[1] + " - Email: " + compData[3],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Email for the exercise of rights: " + compData[4],
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "b) Purpouse of the processing",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "" + clientPurps,
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "c) Categories of data subjets",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Customers: Persons with whom a commercial relationship as customers is mantained",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "d) Categories of data",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "" + clientCats,
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "e) Categories of recipients",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Legal Obligation Recipients: " + clientRecip,
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE IF OTHERS",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "f) International transfers",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE HERE IF INTERNATIONAL DATA TRANSFERS ARE PLANNED",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "g) Term of erasure",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE HERE THE TERMS FOR DATA ERASURE (END OF B2C RELATIONSHIP)",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "h) Security measures",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Those reflected in SECURITY MEASURES ANNEX",
+                })],
+              }),
+              new docx.Paragraph(""),
+            );
+
+          }
 
 
+          if (localStorage.employData == "true") {
+            var employCats = JSON.parse(localStorage.employeeDataCats);
+            var employPurps = JSON.parse(localStorage.employeeDataPurps);
+            var employSources = JSON.parse(localStorage.employeeDataSources);
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "PROCESSING OF EMPLOYEES PERSONAL DATA",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "a) Details of the controller:",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Identification: " + compData[2] + " - NIF: " + compData[0],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Address: " + compData[5] + ", " + compData[6] + " in " + compData[9] + ", " + compData[8] + " - zip: " + compData[10],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Phone: " + compData[1] + " - Email: " + compData[3],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Email for the exercise of rights: " + compData[4],
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "b) Purpouse of the processing",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "" + employPurps,
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "c) Categories of data subjets",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Employees: Persons who work for the controller",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "d) Categories of data",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "" + employCats,
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "e) Categories of recipients",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Legal Obligation Recipients: State Tax Administration Agency, National Institute of Social Security, Banks and financial entities",
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE IF OTHERS",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "f) International transfers",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE HERE IF INTERNATIONAL DATA TRANSFERS ARE PLANNED",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "g) Term of erasure",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "INDICATE HERE THE TERMS FOR DATA ERASURE (END OF B2C RELATIONSHIP)",
+                  bold: true,
+                  color: "FF0000",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "h) Security measures",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Those reflected in SECURITY MEASURES ANNEX",
+                })],
+              }),
+              new docx.Paragraph(""),
+            );
+          }
+
+          sections.push(
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "ANNEX",
+              heading: docx.HeadingLevel.HEADING_1,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "Security Measures",
+              heading: docx.HeadingLevel.HEADING_1,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Given the type of processing demonstrated when this form was completed, the minimum security measures to be taken are the following:",
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "ORGANISATIONAL MEASURES",
+              heading: docx.HeadingLevel.HEADING_2,
+              bold: true
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "INFORMATION THAT MUST BE KNOWN BY ALL PERSONNEL WITH ACCESS TO PERSONAL DATA." + '\r' + "All personnel with access to personal data must have knowledge of the obligations in relation to the processing of personal data and shall be informed in relation to said obligations. The minimum information which personnel must know shall be the following:",
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "DUTY OF CONFIDENTIALITY AND SECRECY",
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "    -Any access to the personal data by unauthorised persons must be avoided. In order to achieve this, the disclosure of personal data to third parties (unattended screens, paper documents left in public access areas, supports with personal data, etc.) must be avoided. This consideration includes the screens that are used for viewing images of the video surveillance system. When you leave your work station, ensure that you lock your screen or log out",
+              })],
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -Paper documents and electronic media must be stored in a secure place (in a press or in restricted access rooms) 24 hours a day. "
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -Documents and electronic media with personal data may not be discarded (cd, USB storage devices, hard drives, etc.) without ensuring their effective destruction."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -Personal data or any other information of a personal nature will not be revealed to third parties, taking special care not to disclose protected personal data for the duration of the telephone consultation, email, etc."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -The duty of confidentiality and secrecy remains in effect even after the employment relationship between the employee and the company has come to an end."
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "PERSONAL DATA SECURITY VIOLATIONS",
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "    -o	Where a violation of the security of personal data occurs, for example, the theft or unauthorised access to the personal data, the corrresponding Data Protection Agency must be notified within 72 hours of said security violations, including all the information necessary for clarifying the facts that have given rise to the unauthorised access to personal data.",
+              })],
+            }), new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "TECHNICAL MEASURES",
+              heading: docx.HeadingLevel.HEADING_2,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "IDENTIFICATION",
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "    -When the same computer or device is used for processing personal data and for personal use it is advised that different profiles are created for each of these uses. Professional and personal uses of the computer should be kept separate.",
+              })],
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -The creation of a profile with administration rights is recommended for the installation and configuration of the system and users without administration rights or privileges for accessing personal data. In the event of cyber attack, this prevents attackers from obtaining the rights or privileges to access or modify the operating system."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -Passwords will be used for access to personal data stored in electronic files. The password must have 8 characters and a combination of numbers and letters."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -When different people access personal data, a specific username and password (unequivocal identification) must be kept."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -The confidentiality of passwords must be maintained, avoiding any disclosure to third parties."
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "DUTY TO SAFEGUARD",
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "    -UPDATING COMPUTERS AND DEVICES. The devices and computers used for the storage and processing of the personal data must be maintained up to date insofar as possible. ",
+              })],
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -MALWARE: The computers and devices on which automated data processing is performed must have an antivirus system that will ensure, insofar as possible, the prevention of possible theft and destruction of the information and personal data. The antivirus system must be updated regularly."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -FIREWALLS: To prevent unauthorised remote access to personal data, firewalls will be activated and correctly configured on those computers and devices where personal data are stored and/or processed."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -ENCRYPTED DATA: Where personal data are required off the premises where they are processed, whether by physical or electronic means, the possibility of using a method of encryption to guarantee confidentiality of the personal data in the event of unauthorised access to the information must be assessed."
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "    -BACKUP COPY Periodically, backup copies will be made on a second device, different from that used for day-to-day work. The copy will be stored in a secure place, different from that where the computer and original files are stored, in order to allow for data recovery in the event of the loss of information. "
+            }),
+            new docx.Paragraph(""),
+          );
+
+          const rpa = new docx.Document({
+            sections: [{
+              children: sections,
+            }]
+          });
+
+          docx.Packer.toBlob(rpa).then((blob) => {
+            saveAs(blob, "RecordsOfProcessingActivities.docx");
+          });
+
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateRecommDoc() {
+          const doc = new docx.Document({
+            sections: [{
+              children: [
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  text: "Additional Sugestions to GDPR Compliance", heading: docx.HeadingLevel.TITLE
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "In this document, we offer some additional recommendations based on our research to assist companies in achieving greater GDPR compliance.It is optional for companies to obtain this information."
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "1. Sticky policies. Your organization should create security policies associated with data in the form of sticky policies. A sticky policy is a machine-readable policy attached to data to define the permitted use and obligations over the data. These policies travel with the data, allowing users to enhance control over their personal information. A portion of the sticky policy information comes from the contract with the CSP. This suggestion complements the one offered to the data security question of the general GDPR compliance guideline."
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "2. Control accesses. The CSP should limit access to data. In the SLA between the company and the CSP, the company should establish the recipients. According to article 4, the term ``recipient'' means a natural or legal person, a public authority, an agency, or another entity to which the personal data are disclosed, i.e., the third parties authorized to access its customers' data and for what purpose." + "\r" + "Therefore, we propose to include this information in the permission and purpose fields of the sticky policy associated with the data. For example, Google Cloud provides a list of the permitted processors to access its data, following this recommendation, as seen "
+                  ),
+                  new docx.ExternalHyperlink({
+                    children: [
+                      new docx.TextRun({
+                        text: "here",
+                        bullet: {
+                          level: 1
+                        },
+                        style: "Hyperlink",
+
+                      }),
+                    ],
+                    link: "https://cloud.google.com/privacy/gdpr",
+                  }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "3. Tracking data accesses. The presence of third parties can increase risk, as explained in Section. We recommend that the CSP, as joint controller identifies third parties before the company adopts a cloud service, ensuring that their responsibilities are addressed in the contract. In this way, only third parties who obtain the explicit ``consent'' can access the data. For this purpose, we propose to add a field, called accessHistory, to the proposed security sticky policy associated with the data that allows recording the data accesses of third parties, that is, allows tracking of the data."
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "4. Encryption and edge computing. We recommend encrypting the data locally. The recommendation is based on a report by the European Union Agency for Network and Information Security (ENISA). Data encryption and decryption keys must be stored by the data controller (your company) since both keys and data must remain under your control, not in the cloud. For this purpose, a solution could be the use of edge computing technology. In this way, outsourced data storage on remote clouds is practical and relatively safe, as long as only the data owner, not the cloud service, holds the decryption keys."
+                  )],
+                }),
+              ],
+            }]
+          });
+          docx.Packer.toBlob(doc).then((blob) => {
+            saveAs(blob, "OtherRecommendations.docx");
+          });
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateDSRights() {
+          let rights = new docx.Document({
+            sections: [{
+              children: [
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.CENTER,
+                  text: "RIGHTS OF THE DATA SUBJECT", heading: docx.HeadingLevel.TITLE
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun(
+                    "The data controller must establish viable, accessible and simple mechanisms for the exercise of rights and define internal procedures to guarantee effective facilitation of the requests received."
+                  )],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO ACCESS:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " For the right to access, data subjects will be provided a copy of personal data available together with the purpose for which they have been collected, the identity of the recipients of the data, the terms of retention provided and the criteria used to determine these, the existence of the right to request the rectification or erasure of personal data and the limitation of, or opposition to, processing, the right to lodge a complaint with the corresponding Data Protection Agency and if the data of the data subject have not been obtained, any information available regarding their origin. The right to obtain a copy of the data cannot negatively affect the rights and freedoms of the data subjects.",
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Access right form.",
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.incibe.es/en/protect-your-business",
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO RECTIFICATION:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " In the right to rectification the data of the data subject that were incorrect or incomplete shall be changed in accordance with the purposes of the processing. The data subject may indicate in the request what data are referred to and the correction to be made, providing, where necessary, the supporting documentation of the inaccuracy or incomplete nature of the data processed. If the data have been communicated by the controller to other processors, they must notify them of the rectification unless it is impossible to do so or requires disproportionate effort, providing the data subject with information regarding such recipients upon request."
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Rectification right form.",
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.aepd.es/sites/default/files/2019-09/formulario-derecho-de-rectificacion.pdf",
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO ERASURE:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " In the case of the right to erasure, the data of the data subjects shall be erased where they oppose processing and no legal basis impedes it, where not necessary in relation to the purposes for which they were collected, they withdraw the consent provided and there is no legitimate legal basis for the processing or where it is illegal. If the erasure arises from the exercise of the right to opposition to the processing of their data for marketing purposes on the part of the data subject, the identification data of the data subject may be retained for the purpose of preventing future processing. If the data have been communicated by the controller to other processors, they must notify them of the erasure unless it is impossible to do so or requires disproportionate effort, providing the data subject with information regarding such recipients if they request same."
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Erasure right form.",
+                          bullet: {
+                            level: 1
+                          },
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.incibe.es/protege-tu-empresa/juego-rol-pyme-seguridad",
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO OPPOSITION:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " In the case of the right to opposition, where the data subjects refuse to provide consent for the processing of their personal data before the controller, the controller shall cease processing them provided that no legal obligation prevents them from doing so. Where the processing is based on a mission of public interest or legitimate interest of the controller, before a request to exercise the right to opposition, the controller must cease processing the data except where overriding reasons prevail above the interests, rights and freedoms of the data subject or are necessary for their formulation, exercise or defence of the claims. If the data subject opposes the processing for the purposes of direct marketing, the personal data shall no longer be processed for these purposes."
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Opposition right form.",
+                          bullet: {
+                            level: 1
+                          },
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.aepd.es/sites/default/files/2019-09/formulario-derecho-de-oposicion.pdf",
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO PORTABILITY:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " In the case of right to portability, if the processing is carried out by automated means and is based on consent or is carried out within the framework of a contract, the data subject may request a copy of their personal data in a structured, commonly used and electronically readable format. Thus, they have the right to request that they are transmitted directly to a new controller whose identity must be communicated where technically possible."
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Portability right form.",
+                          bullet: {
+                            level: 1
+                          },
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.aepd.es/sites/default/files/2019-09/formulario-derecho-de-portabilidad.pdf",
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "RIGHT TO LIMITATION OF PROCESSING:",
+                      bold: true
+                    }),
+                    new docx.TextRun(
+                      " In the case of the right to limitation of processing, the data subjects may request the suspension of processing of their data to impugn the inaccuracy while the controller carries out the necessary verifications or, in the event that the processing is carried out based on the legitimate interest of the controller or in compliance with a mission of public interest, while it is verified if these reasons prevail over the interests, rights and freedoms of the data subject. The data subject may also request the retention of the data if it is considered that the processing is illegal and, rather than suspension, request the limitation of processing or if the controller no longer needs the data for the purposes for which they were collected, the data subject needs them for the formulation, exercise or defence of complaints or claims. In the event that the processing of the data subject’s data is limited this must be clearly stated in the controller's systems. If the data have been communicated by the controller to other processors, they must notify them of the rectification unless it is impossible to do so or requires disproportionate effort, providing the data subject with information regarding such recipients on request. "
+                    ),
+                    new docx.ExternalHyperlink({
+                      children: [
+                        new docx.TextRun({
+                          text: "Limitation of processing right form.",
+                          bullet: {
+                            level: 1
+                          },
+                          style: "Hyperlink",
+
+                        }),
+                      ],
+                      link: "https://www.incibe.es/protege-tu-empresa/herramientas/politicas",
+                    }),
+                  ],
+                }),
+              ],
+            }]
+
+          });
+          //Save doc
+          docx.Packer.toBlob(rights).then((blob) => {
+            saveAs(blob, "DataSubjectRights.docx");
+          })
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateInterestedInfo() {
+          var compData = JSON.parse(localStorage.companyData);
+          var sections = [
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "INFORMATION TO THE INTERESTED PARTY",
+              heading: docx.HeadingLevel.TITLE
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun(
+                "In accordance with article 13, this document contains the informative clauses to be included in the information request forms and contractual clauses pertaining to data protection to be annexed to each of the service provision contracts subscribed with processors."
+              )],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "Duties of the Controller",
+              heading: docx.HeadingLevel.HEADING_3
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "The controller shall be responsible for:"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "a) Transferring to the processor any necessary data so that it can provide the relevant services."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "b) Ensuring, in advance of and throughout the whole processing period, compliance with the provisions of applicable regulation on the part of the processor."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "c) Supervising the processing, including the possibility of requesting information to verify compliance with the obligations established in this contract."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              text: "Duties of the Processor",
+              heading: docx.HeadingLevel.HEADING_3
+            }),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "The processor and all personnel thereof, have a duty to:"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "a) To use the personal data to which you have access as a result of the provision of the service for the purposes of the assigned processing. Data may not, under any circumstances, be used for the Processor’s own interests."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "b) Process data in accordance with the instructions provided by the controller. If the processor considers that any of the instructions provided violate the General Data Protection Regulation or any other provision in relation to data protection, the processor must immediately inform the controller."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "c) Refrain from disclosing data to third parties, unless you have the express authorisation of the Controller or in the legally admissible circumstances. If the processor wishes to subcontract this function, in part or in full, they must inform the controller in advance and request their authorisation."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "d) Fulfil the duty of confidentiality regarding personal data they may have accessed by virtue of this contract, even after the termination of the contract."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "e) Ensure that the persons authorised to process personal data undertake, expressly and in writing, to respect confidentiality and to comply with the corresponding security measures, which the controller shall notify them of as appropriate. "
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "f) Retain any documents certifying that the obligation established in the above paragraph and make same available to the controller."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "g) Guarantee the necessary training in personal data protection for those persons authorised to process such personal data."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "h) Notification of Personal Data Security Breaches"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "i) Make available to the controller all information needed to demonstrate that it has complied with its obligations and to allow and contribute to any audits or inspections carried out by the controller or auditor authorised by them."
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "j) Not retain personal data relating to processing carried out except where strictly necessary for the provision of the service subject to contract and only for the minimum essential time. Once the provision of the service under contract is finalised, the processor shall erase, return to the controller or, where required, transfer all the personal data to a new processor as determined by test."
+              })],
+            }),
+            new docx.Paragraph(""),];
+
+          if (localStorage.clientData == "true") {
+            var clientCats = JSON.parse(localStorage.clientDataCats);
+            var clientPurps = JSON.parse(localStorage.clientDataPurps);
+            var clientRecip = JSON.parse(localStorage.clientLegalRecips);
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "PROCESSING OF CUSTOMERS PERSONAL DATA",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Informative clause",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Details of the controller:",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Identification: " + compData[2] + " - NIF: " + compData[0],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Address: " + compData[5] + ", " + compData[6] + " in " + compData[9] + ", " + compData[8] + " - zip: " + compData[10],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Phone: " + compData[1] + " - Email: " + compData[3],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Email for the exercise of rights: " + compData[4],
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "At " + compData[2] + " we process the information you provide us for the purpose(s) of " + clientPurps + ". The data provided are retained for the duration of the commercial relationship or for the period necessary to comply with the legal obligations and to attend to the possible responsibilities that may arise from compliance with the purpose for which the data were collected. Data shall not be assigned to third parties unless there is a legal obligation to do so. You have the right to obtain information as to whether here at " + compData[2] + " we are processing your personal data, and therefore you may exercise your rights to access, rectification, erasure or portability of data and limitation of processing, contacting " + compData[2] + ", " + compData[5] + compData[6] + " or by email to " + compData[4] + ", attaching a copy of your National Identification Document or equivalent. Furthermore, and especially where you consider that the exercise of your rights has not been fully satisfied, you may lodge a complaint with the national regulatory authority.",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Similarly, we request authorisation to offer you products and services related to the ones you have contracted and to generate customer loyalty",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "YES",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "NO",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Marking the option 'NO' implies that " + compData[2] + " wont be allowed to send marketing offers to you under no circumstances",
+                })],
+              }),
+              new docx.Paragraph(""),
+            );
+
+            if (localStorage.clientAdmin == "true") {
+              var adminAgen = JSON.parse(localStorage.clientAdminAgen);
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "Contract with Administrative Agency to oversee customer processes:",
+                      bold: true
+                    }),
+                  ]
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Purpose of the processing assignment",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "These clauses hereby authorise " + adminAgen[0] + ", with registered address at " + adminAgen[2] + " and NIF (Tax Identification Code) " + adminAgen[1] + " as processor to process, on behalf of " + compData[2] + " in the capacity of Controller, the personal data necessary to provide the service specified below. The processing shall consist of: "
+                      + adminAgen[3],
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Identification of affected information",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "For the execution of the provisions arising from compliance with the purpose of this assignment, the entity " + compData[2] + " as Controller, shall make the identification and banking data of its customers available to " + adminAgen[0] + "."
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Duration",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "This contract has a term of duration of "
+                    }),
+                    new docx.TextRun({
+                      text: "INDICATE DURATION HERE",
+                      bold: true
+                    }),
+                    new docx.TextRun({
+                      text: ", and shall be renewed automatically unless otherwise stated by either of the parties." + "\r" + "Once this contract is terminated, the processor must return the personal data processed to the controller or transfer these to another processor designated by the controller and erase any copy of same that may be in its possession. Nevertheless, it may block the data for the minimum period necessary to attend to any potential responsibilities that may arise from the relationship with " + compData[2] + ", destroying them in a secure and definitive way upon the expiry of such period."
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+              );
+            }
+
+            if (localStorage.clientOther == "true") {
+              var adminAgen = JSON.parse(localStorage.otherCompany);
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "Contract with Management Company to oversee customer processes:",
+                      bold: true
+                    }),
+                  ]
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Purpose of the processing assignment",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "These clauses hereby authorise " + adminAgen[0] + ", with registered address at " + adminAgen[2] + " and NIF (Tax Identification Code) " + adminAgen[1] + " as processor to process, on behalf of " + compData[2] + " in the capacity of Controller, the personal data necessary to provide the service specified below. The processing shall consist of: "
+                      + adminAgen[3],
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Identification of affected information",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "For the execution of the provisions arising from compliance with the purpose of this assignment, the entity " + compData[2] + " as Controller, shall make the identification and banking data of its customers available to " + adminAgen[0] + "."
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Duration",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "This contract has a term of duration of "
+                    }),
+                    new docx.TextRun({
+                      text: "INDICATE DURATION HERE",
+                      bold: true
+                    }),
+                    new docx.TextRun({
+                      text: ", and shall be renewed automatically unless otherwise stated by either of the parties." + "\r" + "Once this contract is terminated, the processor must return the personal data processed to the controller or transfer these to another processor designated by the controller and erase any copy of same that may be in its possession. Nevertheless, it may block the data for the minimum period necessary to attend to any potential responsibilities that may arise from the relationship with " + compData[2] + ", destroying them in a secure and definitive way upon the expiry of such period."
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+              );
+            }
+          }
+
+          if (localStorage.employData == "true") {
+            var employCats = JSON.parse(localStorage.employeeDataCats);
+            var employPurps = JSON.parse(localStorage.employeeDataPurps);
+            var employSources = JSON.parse(localStorage.employeeDataSources);
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "PROCESSING OF EMPLOYEES PERSONAL DATA",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Informative clause",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Details of the controller:",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Identification: " + compData[2] + " - NIF: " + compData[0],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Address: " + compData[5] + ", " + compData[6] + " in " + compData[9] + ", " + compData[8] + " - zip: " + compData[10],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Phone: " + compData[1] + " - Email: " + compData[3],
+                })],
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Email for the exercise of rights: " + compData[4],
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "At " + compData[2] + " we process the information you provide us for the purpose(s) of " + employPurps + ". The data provided are retained for the duration of the commercial relationship or for the period necessary to comply with the legal obligations and to attend to the possible responsibilities that may arise from compliance with the purpose for which the data were collected. Data shall not be assigned to third parties unless there is a legal obligation to do so. You have the right to obtain information as to whether here at " + compData[2] + " we are processing your personal data, and therefore you may exercise your rights to access, rectification, erasure or portability of data and limitation of processing, contacting " + compData[2] + ", " + compData[5] + compData[6] + " or by email to " + compData[4] + ", attaching a copy of your National Identification Document or equivalent. Furthermore, and especially where you consider that the exercise of your rights has not been fully satisfied, you may lodge a complaint with the national regulatory authority.",
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "All the data related to the employee will be destroyed when the professional employment relationship with the company expires",
+                })],
+              }),
+              new docx.Paragraph(""),
+            );
+
+            if (localStorage.employAdmin == "true") {
+              var adminAgen = JSON.parse(localStorage.employeeAdminAgen);
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "Contract with Administrative Agency to oversee employee processes:",
+                      bold: true
+                    }),
+                  ]
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Purpose of the processing assignment",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "These clauses hereby authorise " + adminAgen[0] + ", with registered address at " + adminAgen[2] + " and NIF (Tax Identification Code) " + adminAgen[1] + " as processor to process, on behalf of " + compData[2] + " in the capacity of Controller, the personal data necessary to provide the service specified below. The processing shall consist of: "
+                      + adminAgen[3],
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Identification of affected information",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "For the execution of the provisions arising from compliance with the purpose of this assignment, the entity " + compData[2] + " as Controller, shall make the identification and banking data of its customers available to " + adminAgen[0] + "."
+                  })],
+                }),
+                new docx.Paragraph(""),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  text: "Duration",
+                  heading: docx.HeadingLevel.HEADING_3
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [
+                    new docx.TextRun({
+                      text: "This contract has a term of duration of "
+                    }),
+                    new docx.TextRun({
+                      text: "INDICATE DURATION HERE",
+                      bold: true
+                    }),
+                    new docx.TextRun({
+                      text: ", and shall be renewed automatically unless otherwise stated by either of the parties." + "\r" + "Once this contract is terminated, the processor must return the personal data processed to the controller or transfer these to another processor designated by the controller and erase any copy of same that may be in its possession. Nevertheless, it may block the data for the minimum period necessary to attend to any potential responsibilities that may arise from the relationship with " + compData[2] + ", destroying them in a secure and definitive way upon the expiry of such period."
+                    }),
+                  ],
+                }),
+                new docx.Paragraph(""),
+              );
+            }
+
+          }
+
+          if (localStorage.firstTP == "true") {
+            var tpData = JSON.parse(localStorage.firstTPData);
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "SERVICE COMAPNIES",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Contracts with service companies:",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [
+                  new docx.TextRun({
+                    text: "IMPORTANT:",
+                    bold: true
+                  }),
+                  new docx.TextRun(
+                    " Your contract with the company providing the service must include one of the following types of contractual clauses, based on whether the company has access to the information systems on which the controller processes the data (hosting providers, email service providers, IT maintenance, etc.) or if they have only incidental access to the data by virtue of the service they provide and must uphold the confidentiality of the information they may thus become aware of (cleaning companies, maintenance companies, etc.)."
+                  ),
+                ],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "A) Clauses for service providers with access to information systems.",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                text: "Purpose of the processing assignment",
+                heading: docx.HeadingLevel.HEADING_3
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "These clauses hereby authorise " + tpData[0] + ", with registered address at " + tpData[2] + " and NIF (Tax Identification Code) " + tpData[1] + " as processor to process, on behalf of " + compData[2] + " in the capacity of Controller, the personal data necessary to provide the service specified below. The processing shall consist of: "
+                    + tpData[3],
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                text: "Identification of affected information",
+                heading: docx.HeadingLevel.HEADING_3
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "For the execution of the provisions arising from compliance with the purpose of this assignment, the entity " + compData[2] + " as Controller, shall make the identification and banking data of its customers available to " + tpData[0] + "."
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                text: "Duration",
+                heading: docx.HeadingLevel.HEADING_3
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [
+                  new docx.TextRun({
+                    text: "This contract has a term of duration of "
+                  }),
+                  new docx.TextRun({
+                    text: "INDICATE DURATION HERE",
+                    bold: true
+                  }),
+                  new docx.TextRun({
+                    text: ", and shall be renewed automatically unless otherwise stated by either of the parties." + "\r" + "Once this contract is terminated, the processor must return the personal data processed to the controller or transfer these to another processor designated by the controller and erase any copy of same that may be in its possession. Nevertheless, it may block the data for the minimum period necessary to attend to any potential responsibilities that may arise from the relationship with " + compData[2] + ", destroying them in a secure and definitive way upon the expiry of such period."
+                  }),
+                ],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "B) Confidentiality clauses for service providers with accidental access to data",
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [
+                  new docx.TextRun({
+                    text: "IMPORTANT:",
+                    bold: true
+                  }),
+                  new docx.TextRun(
+                    " This clause must be included as another within the contract subscribed with service providers."
+                  ),
+                ],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                text: "Duty of confidentiality",
+                heading: docx.HeadingLevel.HEADING_3
+              }),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "The service provision object of this contract does not include the processing of personal data."
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "Nevertheless, in the event that personnel of " + tpData[0] + ", in an accidental or incidental manner, become aware of personal data relating to the activities of " + compData[2] + ", they shall be obliged to strictly observe the duty of secrecy and confidentiality, both during the course of the contractual relationship and after termination of same,"
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "a) following the indications of the personnel of test at all times,"
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "b) Refraining from using the information that may have come into their knowledge for any purpose other than that arising from the provision of the service and "
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "c) without divulging, publicising or using such information that may have come into their knowledge during the provision of the service object of this contract for their own benefit or for the benefit of third parties."
+                })],
+              }),
+              new docx.Paragraph(""),
+            );
+          }
+
+          const info13 = new docx.Document({
+            sections: [{
+              children: sections,
+            }]
+          });
+
+          docx.Packer.toBlob(info13).then((blob) => {
+            saveAs(blob, "InformationToTheInterestedParty.docx");
+          });
+        }
       </script>
 
 
