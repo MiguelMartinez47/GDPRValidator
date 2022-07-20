@@ -92,8 +92,8 @@
         <h3 class="float-md-start mb-0">GDPRValidator</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
-          <a class="nav-link fw-bold py-1 px-0" href="main.html">Tool</a>
-          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="checklists.html">Checklist</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="companyDataForm2.html">Tool</a>
+          <a class="nav-link fw-bold py-1 px-0 "href="main.html">About</a>
         </nav>
       </div>
     </header>
@@ -102,7 +102,8 @@
   <div class="b-example-divider"></div>
 
   <div class="py-5 text-center">
-    <h5>General GDPR guidelines</h5>
+    <h2>General GDPR guidelines</h2>
+    <h5>This step is optional <a class="btn btn-primary" href="cloudgdpr.html">Skip!</a></h4>
   </div>
 
 
@@ -115,24 +116,35 @@
     <div class="accordion" id="accordion_1">
       <div class="accordion-item">
         <h5 class="accordion-header" id="headingOne">
-          <h2 class="input-group mb-0">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="" aria-checked="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_1_1" aria-expanded="true" aria-controls="collapse_1_1">
-              Does the company conduct an information audit to determine what information is processed and who has
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_1_1" aria-expanded="true" aria-controls="collapse_1_1">Does the company conduct
+              an information audit to determine what information
+              is processed and who has
               access to it?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_1_1">
+                <label class="form-check-label" for="check_1_1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_1_1">
+                <label class="form-check-label" for="addIfChecked_1_1">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_1_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
           data-bs-parent="#accordion_1">
           <div class="accordion-body">
             The most effective way to demonstrate GDPR compliance is to conduct a data protection impact assessment
-            (DPIA), article 35. Among other things, the DPIA must include the purpose of the processing, the types of
+            (DPIA), <a href="https://gdpr-info.eu/art-35-gdpr/">article 35</a>. Among other things, the DPIA must
+            include the purpose of the processing, the types of
             data you process, who has access to it in the organization, any third parties (and their location) who have
             access, and how you plan to protect the data such as encryption), and when you plan to erase it (if
             possible). The CSP should also provide your company with all this data access information. Therefore, the
@@ -143,26 +155,37 @@
       </div>
       <div class="accordion-item">
         <h5 class="accordion-header" id="headingTwo">
-          <h2 class="input-group mb-0">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_1_2" aria-expanded="false" aria-controls="collapse_1_2">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_1_2" aria-expanded="true" aria-controls="collapse_1_2">
               Does your company have a legal justification for your data processing activities?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_1_2">
+                <label class="form-check-label" for="check_1_2">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_1_2">
+                <label class="form-check-label" for="addIfChecked_1_2">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_1_2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_1">
           <div class="accordion-body">
-            The possible answers to this question relate to the legal basis for the processing defined by article 6.
+            The possible answers to this question relate to the legal basis for the processing defined by <a
+              href="https://gdpr-info.eu/art-6-gdpr/">article 6</a>.
             When the legal basis is “consent”, that is, the data subject (in your case, your customer) has given consent
             to data access, your company has additional obligations that include offering data subjects the opportunity
             to revoke this consent. In the case of processing for “legitimate interests” pursued by the others (your
-            company, the CSP, or by a third party), article 6. f, an assessment of privacy impacts must be conducted by
+            company, the CSP, or by a third party), <a href="https://gdpr-info.eu/art-6-gdpr/">article 6</a>. f, an
+            assessment of privacy impacts must be conducted by
             your company. There are other provisions in articles 7 to 11 related to children and special categories of
             personal data.
           </div>
@@ -170,25 +193,35 @@
       </div>
       <div class="accordion-item">
         <h5 class="accordion-header" id="headingThree">
-          <h2 class="input-group mb-0">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_1_3" aria-expanded="false" aria-controls="collapse_1_3">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_1_3" aria-expanded="true" aria-controls="collapse_1_3">
               Does the company provide clear information about your data processing and legal justification in your
               privacy policy?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_1_3">
+                <label class="form-check-label" for="check_1_3">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_1_3">
+                <label class="form-check-label" for="addIfChecked_1_3">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_1_3" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordion_1">
           <div class="accordion-body">
             This information should be included in your privacy policy and provided to data subjects when their data are
-            collected. Data subjects must be informed about the data collected about them and why, according to article
-            12. You must report how the data is processed, who has access to it, and how it is kept safe.
+            collected. Data subjects must be informed about the data collected about them and why, according to <a
+              href="https://gdpr-info.eu/art-12-gdpr/">article 12</a>. You must report how the data is processed, who
+            has access to it, and how it is kept safe.
           </div>
         </div>
       </div>
@@ -205,68 +238,96 @@
     </div>
     <div class="accordion" id="accordion_2">
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingOne">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value=""
-                aria-label="Checkbox for following text input">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
+        <h5 class="accordion-header" id="headingOne">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapse_2_1" aria-expanded="true" aria-controls="collapse_2_1">
               From the moment projects begin to develop products to each time data are processed, does the company
               consider data protection at all times?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_2_1">
+                <label class="form-check-label" for="check_2_1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_2_1">
+                <label class="form-check-label" for="addIfChecked_2_1">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
-        <div id="collapse_2_1" class="accordion-collapse collapse show" aria-labelledby="headingOneDS"
+        <div id="collapse_2_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
           data-bs-parent="#accordion_2">
           <div class="accordion-body">
             The company should evaluate whether the company applies the principles of “data protection by design and
-            default” defined in article 25, such as implementing “appropriate technical and organizational measures“.
+            default” defined in <a href="https://gdpr-info.eu/art-25-gdpr/">article 25</a>, such as implementing
+            “appropriate technical and organizational measures“.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_2_2" aria-expanded="false" aria-controls="collapse_2_2">
+        <h5 class="accordion-header" id="headingTwo">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_2_2" aria-expanded="true" aria-controls="collapse_2_2">
               When a data breach occurs, does your company have a procedure for contacting the authorities and your data
               subjects?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_2_2">
+                <label class="form-check-label" for="check_2_2">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_2_2">
+                <label class="form-check-label" for="addIfChecked_2_2">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_2_2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_2">
           <div class="accordion-body">
             It is important to consider that, according to GDPR, a data breach that exposes personal data must be
-            reported to the supervisory authority within 72 hours. According to article 34, you must also notify the
+            reported to the supervisory authority within 72 hours. According to <a
+              href="https://gdpr-info.eu/art-34-gdpr/">article 34</a>, you must also notify the
             supervisory authority and your customers immediately, within 72 hours, if there is a data breach. Unless the
             breach is unlikely to put them at risk, for instance, if the data stolen is encrypted.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingThree">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_2_3" aria-expanded="false" aria-controls="collapse_2_3">
+        <h5 class="accordion-header" id="headingThree">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_2_3" aria-expanded="true" aria-controls="collapse_2_3">
               Whenever possible, does the company protect personal information by encryption, pseudonymization, or
               anonymization?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_2_3">
+                <label class="form-check-label" for="check_2_3">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_2_3">
+                <label class="form-check-label" for="addIfChecked_2_3">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_2_3" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordion_2">
@@ -276,19 +337,28 @@
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingFour">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_2_4" aria-expanded="false" aria-controls="collapse_2_4">
+        <h5 class="accordion-header" id="headingFour">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_2_4" aria-expanded="true" aria-controls="collapse_2_4">
               Does your company create an internal security policy for your team members and build awareness about data
               protection?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_2_4">
+                <label class="form-check-label" for="check_2_4">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_2_4">
+                <label class="form-check-label" for="addIfChecked_2_4">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_2_4" class="accordion-collapse collapse" aria-labelledby="headingFour"
           data-bs-parent="#accordion_2">
@@ -311,20 +381,28 @@
     </div>
     <div class="accordion" id="accordion_3">
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingOne">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value=""
-                aria-label="Checkbox for following text input">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
+        <h5 class="accordion-header" id="headingOne">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapse_3_1" aria-expanded="true" aria-controls="collapse_3_1">
               Has your company signed a data processing agreement with any third parties who process personal data on
               your behalf?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_3_1">
+                <label class="form-check-label" for="check_3_1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_3_1">
+                <label class="form-check-label" for="addIfChecked_3_1">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_3_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
           data-bs-parent="#accordion_3">
@@ -339,26 +417,36 @@
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_3_2" aria-expanded="false" aria-controls="collapse_3_2">
+        <h5 class="accordion-header" id="headingTwo">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_3_2" aria-expanded="true" aria-controls="collapse_3_2">
               Has your company appointed a Data Protection Officer (if necessary)?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_3_2">
+                <label class="form-check-label" for="check_3_2">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_3_2">
+                <label class="form-check-label" for="addIfChecked_3_2">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_3_2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_3">
           <div class="accordion-body">
             There are some circumstances in which organizations are required to have a Data Protection Officer (DPO).
             These conditions usually arise when a company’s activity involves large-scale data processing or sensitive
-            or special categories of data
-            are processed, according to articles 9 and 10. A DPO should be an expert in data protection. This officer
+            or special categories of data are processed, according to articles <a
+              href="https://gdpr-info.eu/art-9-gdpr/">9</a> and <a href="https://gdpr-info.eu/art-10-gdpr/">10</a>. A
+            DPO should be an expert in data protection. This officer
             should have duties that include monitoring GDPR compliance, assessing data protection risks, advising on
             data protection impact assessments, and cooperating with regulators. In any case, although having a DPO
             isn’t mandatory, it is recommended.
@@ -366,47 +454,67 @@
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingThree">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_3_3" aria-expanded="false" aria-controls="collapse_3_3">
-              Has your company appointed someone to ensure GDPR compliance?
+        <h5 class="accordion-header" id="headingThree">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_3_3" aria-expanded="true" aria-controls="collapse_3_3">
+              Has your company appointed a Data Protection Officer (if necessary)?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_3_3">
+                <label class="form-check-label" for="check_3_3">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_3_3">
+                <label class="form-check-label" for="addIfChecked_3_3">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_3_3" class="accordion-collapse collapse" aria-labelledby="headingThree"
           data-bs-parent="#accordion_3">
           <div class="accordion-body">
-            According to the guidelines of “data protection by design and by default”, article 25, GDPR compliance must
+            According to the guidelines of “data protection by design and by default”, <a
+              href="https://gdpr-info.eu/art-25-gdpr/">article 25</a>, GDPR compliance must
             be assigned to someone within the organization. Data protection policies must be evaluated and implemented
             by this individual.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingFour">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_3_4" aria-expanded="false" aria-controls="collapse_3_4">
+        <h5 class="accordion-header" id="headingFour">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_3_4" aria-expanded="true" aria-controls="collapse_3_4">
               Does your company appoint a representative within an EU member state if it is not an EU member?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_3_4">
+                <label class="form-check-label" for="check_3_4">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_3_4">
+                <label class="form-check-label" for="addIfChecked_3_4">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_3_4" class="accordion-collapse collapse" aria-labelledby="headingFour"
           data-bs-parent="#accordion_3">
           <div class="accordion-body">
             If you process data relating to individuals in a particular country, you must designate a representative
-            there who can communicate with the data protection authority on your behalf, article 27. In cases where EU
+            there who can communicate with the data protection authority on your behalf, <a
+              href="https://gdpr-info.eu/art-27-gdpr/">article 27</a>. In cases where EU
             citizens are affected by processing in the multiple Member States, the GDPR does not provide guidance. In
             this case, it may be prudent to designate a representative in a member state that speaks your language.
           </div>
@@ -425,95 +533,135 @@
     </div>
     <div class="accordion" id="accordion_4">
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingOne">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value=""
-                aria-label="Checkbox for following text input">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
+        <h5 class="accordion-header" id="headingOne">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapse_4_1" aria-expanded="true" aria-controls="collapse_4_1">
               Can your customers easily access all the information you have about them?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_1">
+                <label class="form-check-label" for="check_4_1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_1">
+                <label class="form-check-label" for="addIfChecked_4_1">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             First, your organization should ensure that the client requesting the data is verified. Your customers have
             the right to know what personal information your company has about them, how it is used, how long it is
-            stored, and why it is stored, article 15. You must respond to these requests within one month, article 16.
+            stored, and why it is stored, <a href="https://gdpr-info.eu/art-15-gdpr/">article 15</a>. You must respond
+            to these requests within one month, <a href="https://gdpr-info.eu/art-16-gdpr/">article 16</a>.
             This information is sent for free the first time it is requested, but subsequent copies may have a cost.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_2" aria-expanded="false" aria-controls="collapse_4_2">
+        <h5 class="accordion-header" id="headingTwo">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_2" aria-expanded="true" aria-controls="collapse_4_2">
               Do your customers have the ability to update inaccurate or incomplete information easily?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_2">
+                <label class="form-check-label" for="check_4_2">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_2">
+                <label class="form-check-label" for="addIfChecked_4_2">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             First, your company needs to check the identity of the customer asking for the information. Make sure your
             company has a process that allows customers to audit their data and update their personal information if
-            necessary, article 15. Your company must respond to these requests within one month, article 16.
+            necessary, <a href="https://gdpr-info.eu/art-15-gdpr/">article 15</a>. Your company must respond to these
+            requests within one month, <a href="https://gdpr-info.eu/art-16-gdpr/">article 16</a>.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_3" aria-expanded="false" aria-controls="collapse_4_3">
+        <h5 class="accordion-header" id="headingThree">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_3" aria-expanded="true" aria-controls="collapse_4_3">
               Do your customers have the option of deleting their personal information?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_3">
+                <label class="form-check-label" for="check_4_3">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_3">
+                <label class="form-check-label" for="addIfChecked_4_3">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_3" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             It is also necessary to verify the identity of the one making the request. Customers have the right to
-            request the deletion of all their data held by your company, article 17, also called the right to be
-            forgotten. You can refuse the request in certain circumstances, such as exercising freedom of speech or
-            fulfilling a legal obligation. These requests must be answered within one month, article 16.
+            request the deletion of all their data held by your company, <a
+              href="https://gdpr-info.eu/art-17-gdpr/">article 17</a>, also called the right to be forgotten. You can
+            refuse the request in certain circumstances, such as exercising freedom of speech or fulfilling a legal
+            obligation. These requests must be answered within one month, <a
+              href="https://gdpr-info.eu/art-16-gdpr/">article 16</a>.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_4" aria-expanded="false" aria-controls="collapse_4_4">
+        <h5 class="accordion-header" id="headingFour">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_4" aria-expanded="true" aria-controls="collapse_4_4">
               Can your customers ask you to stop processing their data easily?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_4">
+                <label class="form-check-label" for="check_4_4">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_4">
+                <label class="form-check-label" for="addIfChecked_4_4">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_4" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
-            Several grounds allow your customers to restrict or stop the processing of their data, see article 18.
+            Several grounds allow your customers to restrict or stop the processing of their data, see <a
+              href="https://gdpr-info.eu/art-18-gdpr/">article 18</a>.
             Usually, this happens when there is a dispute over whether the processing is lawful or accurate. However,
             you can still store their data while processing is restricted. The customers must be notified before you
             resume processing their data. Your company has to send this notification within a month.
@@ -521,73 +669,100 @@
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_5" aria-expanded="false" aria-controls="collapse_4_5">
-              Do your customers have the option of receiving a copy of their data in a form that can be easily
-              transferred to a different company?
+        <h5 class="accordion-header" id="headingFive">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_5" aria-expanded="true" aria-controls="collapse_4_5">
+              Do your customers have the option of receiving a copy of their data in a form that can be
+              easily transferred to a different company?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_5">
+                <label class="form-check-label" for="check_4_5">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_5">
+                <label class="form-check-label" for="addIfChecked_4_5">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_5" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             Therefore, your organization should be able to send the customer data in a commonly readable format, either
-            directly to them or to a third party they choose, article 20. Your customer data may be given to your
+            directly to them or to a third party they choose, <a href="https://gdpr-info.eu/art-20-gdpr/">article 20</a>. Your customer data may be given to your
             competitor, which may seem unfair from a business perspective. However, from a privacy perspective, the idea
             is that people own their data, not you.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_6" aria-expanded="false" aria-controls="collapse_4_6">
+        <h5 class="accordion-header" id="headingSix">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_6" aria-expanded="true" aria-controls="collapse_4_6">
               Do your customers have the option to object to the processing of their data?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_6">
+                <label class="form-check-label" for="check_4_6">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_6">
+                <label class="form-check-label" for="addIfChecked_4_6">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_6" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             If your organization processes customers’ data for direct marketing, it must cease doing so immediately for
-            that purpose, article 21. On the other hand, you may be able to challenge their objection if you demonstrate
+            that purpose, <a href="https://gdpr-info.eu/art-21-gdpr/">article 21</a>. On the other hand, you may be able to challenge their objection if you demonstrate
             “compelling legitimate grounds”.
           </div>
         </div>
       </div>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingTwo">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value="">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_4_7" aria-expanded="false" aria-controls="collapse_4_7">
+        <h5 class="accordion-header" id="headingSeven">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_4_7" aria-expanded="true" aria-controls="collapse_4_7">
               Does your organization have procedures to protect individuals whose rights are affected by automated
               processes?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_4_7">
+                <label class="form-check-label" for="check_4_7">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_4_7">
+                <label class="form-check-label" for="addIfChecked_4_7">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
         <div id="collapse_4_7" class="accordion-collapse collapse" aria-labelledby="headingTwo"
           data-bs-parent="#accordion_4">
           <div class="accordion-body">
             Some organizations use automated processes for decisions that affect people with legal effects or “of
-            similar importance”, article 22. If you think that applies to your organization, you need to create
+            similar importance”, <a href="https://gdpr-info.eu/art-22-gdpr/">article 22</a>. If you think that applies to your organization, you need to create
             procedures to guarantee their rights and protect their freedoms and legitimate interests. Your company must
             make it easy for customers to request human ntervention, evaluate decisions, and question them.
           </div>
@@ -604,25 +779,33 @@
         <i class="fa fa-balance-scale"></i>Third-Parties
       </h5>
     </div>
-    <div class="accordion" id="accordion_9">
+    <div class="accordion" id="accordion_"5>
       <div class="accordion-item">
-        <h5 class="accordion-header">
-          <h2 class="input-group mb-0" id="headingOne">
-            <!-- <div class=" mb-3"> -->
-            <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value=""
-                aria-label="Checkbox for following text input">
-            </div>
-            <button class="accordion-button form-control" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse_8_1" aria-expanded="true" aria-controls="collapse_9_1">
+        <h5 class="accordion-header" id="headingOne">
+          <div class="input-group row">
+            <button class="btn accordion-button form-control col-8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse_5_1" aria-expanded="true" aria-controls="collapse_5_1">
               Do you have third-parties in the cloud demanding the “consent” to access your customers’ data that are not
               included as recipients in your contracts?
             </button>
-            <!-- </div> -->
-          </h2>
+            <div class="col-2 border-white">
+              <div class=" form-control form-check border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="addIfChecked_5_1">
+                <label class="form-check-label" for="addIfChecked_5_1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check form-control border-white">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="check_5_1">
+                <label class="form-check-label" for="check_5_1">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
         </h5>
-        <div id="collapse_9_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-          data-bs-parent="#accordion_9">
+        <div id="collapse_5_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordion_5">
           <div class="accordion-body">
             Your company must have the identification of those companies that wish to access your customer’s data before
             the “consent” is given, as well as the purpose of the access, the action to be carried out on the data and,
@@ -656,7 +839,7 @@
       allBodys = document.getElementsByClassName('accordion-body');
 
       for (let i = 0; i < allChecks.length; i++) {  //Loop through all checks
-        if (!allChecks[i].checked) {    //If unchecked append corresponding text
+        if (allChecks[i].checked) {    //If unchecked append corresponding text
           sectionsAdd.push(
             new docx.Paragraph({ text: "'" + allBtns[i].innerText + "'" + " You answered: NO" + "\r", heading: docx.HeadingLevel.HEADING_2 })
           )

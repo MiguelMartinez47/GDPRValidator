@@ -90,8 +90,8 @@
         <h3 class="float-md-start mb-0">GDPRValidator</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
-          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="main.html">Tool</a>
-          <a class="nav-link fw-bold py-1 px-0" href="checklists.html">Checklist</a>
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="companyDataForm2.html">Tool</a>
+          <a class="nav-link fw-bold py-1 px-0" href="main.html">About</a>
         </nav>
       </div>
     </header>
@@ -279,10 +279,10 @@
         alert("You have not answered all the questions, please if your company's activity does not match any of the given options, select 'other' in all three.");
       } else if (notReqCount == 3 && required == 'false') {
         alert("The options you have chosen imply that the processing carried out at your company is low risk, therefore the rest of this process will require your information for drafting the documentation provided and you will not need a data processing impact assesment.");
-        window.location.href = './skipGDPRChecklist.html';
+        window.location.href = './checklists.html';
       } else if (required == 'true') {
         alert("You have checked one or more data processing scenarios that suppose a sensible data processing, therefore completing a Data Protection Impact Assesment (DPIA) is required. You will be provided with a tamplate for this at the end of this process.")
-        window.location.href = './skipGDPRChecklist.html';
+        window.location.href = './checklists.html';
       }
     }
   </script>
