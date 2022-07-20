@@ -23,6 +23,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/list-groups/">
   <link href="styles/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/bs-stepper.min.css">
 
   <style>
     .bd-placeholder-img {
@@ -95,6 +96,58 @@
         </nav>
       </div>
     </header>
+  </div>
+
+  <div id="stepper1" class="bs-stepper linear">
+    <div class="bs-stepper-header" role="tablist">
+      <div class="step" data-target="#test-l-1">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1"
+        aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Company Details</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step active" data-target="#test-l-2">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger2" aria-controls="test-l-2"
+          aria-selected="true">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Risk Level Evaluation</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">GDPR Checklist</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">4</span>
+          <span class="bs-stepper-label">Cloud Privacy Requirements</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">5</span>
+          <span class="bs-stepper-label">Third-Parties Details</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">6</span>
+          <span class="bs-stepper-label">Additiona Recommendations</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="b-example-divider"></div>
