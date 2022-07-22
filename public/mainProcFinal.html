@@ -95,58 +95,58 @@
     </header>
   </div>
 
-  
+
   <div id="stepper1" class="bs-stepper linear">
     <div class="bs-stepper-header" role="tablist">
-        <div class="step" data-target="#test-l-1">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1"
-                aria-selected="false" disabled="disabled">
-                <span class="bs-stepper-circle">1</span>
-                <span class="bs-stepper-label">Company Details</span>
-            </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#test-l-2">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger2" aria-controls="test-l-2"
-                aria-selected="false" disabled="disabled">
-                <span class="bs-stepper-circle">2</span>
-                <span class="bs-stepper-label">Risk Level Evaluation</span>
-            </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#test-l-3">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
-                aria-selected="false" disabled="disabled">
-                <span class="bs-stepper-circle">3</span>
-                <span class="bs-stepper-label">GDPR Checklist</span>
-            </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#test-l-3">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
-                aria-selected="false" disabled="disabled">
-                <span class="bs-stepper-circle">4</span>
-                <span class="bs-stepper-label">Cloud Privacy Requirements</span>
-            </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step" data-target="#test-l-3">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
-                aria-selected="false" disabled="disabled">
-                <span class="bs-stepper-circle">5</span>
-                <span class="bs-stepper-label">Third-Parties Details</span>
-            </button>
-        </div>
-        <div class="bs-stepper-line"></div>
-        <div class="step active" data-target="#test-l-3">
-            <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
-                aria-selected="true">
-                <span class="bs-stepper-circle">6</span>
-                <span class="bs-stepper-label">Additiona Recommendations</span>
-            </button>
-        </div>
+      <div class="step" data-target="#test-l-1">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Company Details</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger2" aria-controls="test-l-2"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Risk Level Evaluation</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">GDPR Checklist</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">4</span>
+          <span class="bs-stepper-label">Cloud Privacy Requirements</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="false" disabled="disabled">
+          <span class="bs-stepper-circle">5</span>
+          <span class="bs-stepper-label">Third-Parties Details</span>
+        </button>
+      </div>
+      <div class="bs-stepper-line"></div>
+      <div class="step active" data-target="#test-l-3">
+        <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3"
+          aria-selected="true">
+          <span class="bs-stepper-circle">6</span>
+          <span class="bs-stepper-label">Additiona Recommendations</span>
+        </button>
+      </div>
     </div>
-</div>
+  </div>
 
 
   <div class="b-example-divider"></div>
@@ -267,6 +267,420 @@
           generateRPA();
           generateDSConsent();
           generateBreachForm();
+          generateMainRecoms();
+        }
+      </script>
+
+      <script type="text/javascript">
+        function generateMainRecoms() {
+          var sections = [
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "MAIN GDPR AND CLOUD RECOMMENDATIONS",
+              heading: docx.HeadingLevel.TITLE
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph(""),
+            new docx.Paragraph(""),
+          ];
+
+          if (localStorage.checklistDone == "true") {
+            var implementedTexts = JSON.parse(localStorage.recsImplementedTexts);
+            var implementedLabels = JSON.parse(localStorage.recsImplementedLabels);
+            var notImplTexts = JSON.parse(localStorage.recsNotImpTexts);
+            var notImplLabels = JSON.parse(localStorage.recsNotImpLabels);
+
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "GENERAL GDPR MEASURES ALREADY PRESENT AT YOUR COMPANY",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+
+            for (let i = 0; i < Array.from(implementedLabels).length; i++) {
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "++ " + implementedLabels[i],
+                  })],
+                }),
+              );
+            }
+
+            sections.push(
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "GENERAL GDPR MEASURES NOT PRESENT AT YOUR COMPANY",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+
+            for (let i = 0; i < Array.from(notImplLabels).length; i++) {
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "-- " + notImplLabels[i],
+                  })],
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "> " + notImplTexts[i],
+                  })],
+                }),
+                new docx.Paragraph(""),
+              );
+            }
+
+          } else {
+            sections.push(
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "YOU SKIPPED THIS STEP",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+          }
+
+          if (localStorage.cloudDone == "true") {
+            var implementedTexts = JSON.parse(localStorage.cloudImplementedTexts);
+            var implementedLabels = JSON.parse(localStorage.cloudImplementedLabels);
+            var notImplTexts = JSON.parse(localStorage.cloudNotImpTexts);
+            var notImplLabels = JSON.parse(localStorage.cloudNotImpLabels);
+
+            sections.push(
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "CLOUD COMPUTING MEASURES ALREADY PRESENT AT YOUR COMPANY",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+
+            for (let i = 0; i < Array.from(implementedLabels).length; i++) {
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "++ " + implementedLabels[i],
+                  })],
+                }),
+              );
+            }
+
+            sections.push(
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "CLOUD COMPUTING MEASURES NOT PRESENT AT YOUR COMPANY",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+
+            for (let i = 0; i < Array.from(notImplLabels).length; i++) {
+              sections.push(
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "-- " + notImplLabels[i],
+                  })],
+                }),
+                new docx.Paragraph({
+                  alignment: docx.AlignmentType.JUSTIFIED,
+                  children: [new docx.TextRun({
+                    text: "> " + notImplTexts[i],
+                  })],
+                }),
+                new docx.Paragraph(""),
+              );
+            }
+
+          } else {
+            sections.push(
+              new docx.Paragraph(""),
+              new docx.Paragraph({
+                alignment: docx.AlignmentType.JUSTIFIED,
+                children: [new docx.TextRun({
+                  text: "YOU SKIPPED THIS STEP",
+                  underline: {
+                    type: docx.UnderlineType.SINGLE,
+                  },
+                  bold: true
+                })],
+              }),
+              new docx.Paragraph(""),
+              new docx.Paragraph(""),
+            );
+          }
+
+
+
+          sections.push(
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "ANNEX",
+              heading: docx.HeadingLevel.HEADING_1,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "EU's supervisory authorities",
+              heading: docx.HeadingLevel.HEADING_1,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Austria - https://www.dsb.gv.at/    Belgium - https://www.dataprotectionauthority.be/citizen"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Croatia - https://azop.hr/    Cyprus - https://www.dataprotection.gov.cy/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Czech Republic - https://www.uoou.cz/    Denmark - https://www.datatilsynet.dk/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Estonia - https://www.aki.ee/en    Finland - https://tietosuoja.fi/en/home"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Bulgaria - https://www.cpdp.bg/    France - https://www.cnil.fr/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Germany - https://www.bfdi.bund.de/   Greece - https://www.dpa.gr/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Hungary - https://www.naih.hu/   Ireland - https://www.dataprotection.ie/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Italy - https://www.garanteprivacy.it/   Latvia - https://www.dvi.gov.lv/lv"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Lithuania - https://vdai.lrv.lt/   Luxembourg - https://cnpd.public.lu/fr.html"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Malta - https://idpc.org.mt/   Netherlands - https://autoriteitpersoonsgegevens.nl/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Portugal - https://www.cnpd.pt/   Romania - https://www.dataprotection.ro/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Slovakia - https://dataprotection.gov.sk/uoou/   Slovenia - https://www.ip-rs.si/o-poobla%C5%A1%C4%8Dencu/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Spain - https://www.aepd.es/es   Sweden - https://www.imy.se/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Iceland - https://www.personuvernd.is/   Liechtenstein - https://www.datenschutzstelle.li/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "Norway - https://www.datatilsynet.no/"
+              })],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.CENTER,
+              text: "Important terms and definitions",
+              heading: docx.HeadingLevel.HEADING_1,
+              bold: true
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(1)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(2)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘processing’ means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(3)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘controller’ means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(4)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(5)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘recipient’ means a natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(6)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘third party’ means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and persons who, under the direct authority of the controller or processor, are authorised to process personal data.",
+              }),
+              ],
+            }),
+            new docx.Paragraph(""),
+            new docx.Paragraph({
+              alignment: docx.AlignmentType.JUSTIFIED,
+              children: [new docx.TextRun({
+                text: "(7)",
+                bold: true
+              }),
+              new docx.TextRun({
+                text: "‘personal data breach’ means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
+              }),
+              ],
+            }),
+          );
+
+
+
+
+          const recomm = new docx.Document({
+            sections: [{
+              children: sections,
+            }]
+          });
+
+          //Save doc
+          docx.Packer.toBlob(recomm).then((blob) => {
+            saveAs(blob, "RecommendationsReport.docx");
+          })
+
         }
       </script>
 

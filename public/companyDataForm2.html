@@ -167,92 +167,86 @@
               Valid phone is required.
             </div>
           </div>
-        </div>
+          <div class="col-12">
+            <label for="companyName" class="form-label">Company Name</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="companyName" placeholder="Company's name goes here" required>
+              <div class="invalid-feedback">
+                Your compnay's name is required.
+              </div>
+            </div>
+          </div>
 
-        <div class="col-12">
-          <label for="companyName" class="form-label">Company Name</label>
-          <div class="input-group has-validation">
-            <input type="text" class="form-control" id="companyName" placeholder="Company's name goes here" required>
+          <div class="col-12">
+            <label for="infoEmail" class="form-label">Contact Email </label>
+            <input type="email" class="form-control" id="infoEmail" placeholder="info@yourcompany.com" required>
             <div class="invalid-feedback">
-              Your compnay's name is required.
+              Please enter a valid email address.
             </div>
           </div>
-        </div>
 
-        <div class="col-12">
-          <label for="infoEmail" class="form-label">Contact Email </label>
-          <input type="email" class="form-control" id="infoEmail" placeholder="info@yourcompany.com" required>
-          <div class="invalid-feedback">
-            Please enter a valid email address.
+          <div class="col-12">
+            <label for="rightsEmail" class="form-label">Email for the exercise of data subject rights </label>
+            <input type="email" class="form-control" id="rightsEmail" placeholder="subjectrights.gdpr@yourcompany.com"
+              required>
+            <div class="invalid-feedback">
+              Please enter a valid email address for the exercise of data subject rights.
+            </div>
           </div>
-        </div>
 
-        <div class="col-12">
-          <label for="rightsEmail" class="form-label">Email for the exercise of data subject rights </label>
-          <input type="email" class="form-control" id="rightsEmail" placeholder="subjectrights.gdpr@yourcompany.com"
-            required>
-          <div class="invalid-feedback">
-            Please enter a valid email address for the exercise of data subject rights.
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Please enter your company's address.
+            </div>
           </div>
-        </div>
 
-        <div class="col-12">
-          <label for="address" class="form-label">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-          <div class="invalid-feedback">
-            Please enter your company's address.
+          <div class="col-12">
+            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="Office or dept floor">
           </div>
-        </div>
 
-        <div class="col-12">
-          <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Office or dept floor">
-        </div>
-
-        <div class="col-12">
-          <label for="activityDesc" class="form-label">Company's Activity Description</label>
-          <textarea id="activityDesc" class="form-control" aria-label="With textarea" required></textarea>
-          <div class="invalid-feedback">
-            Please enter a description of your company’s data processing activities.
+          <div class="col-12">
+            <label for="activityDesc" class="form-label">Company's Activity Description</label>
+            <textarea id="activityDesc" class="form-control" aria-label="With textarea" required></textarea>
+            <div class="invalid-feedback">
+              Please enter a description of your company’s data processing activities.
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <label for="country" class="form-label">Country</label>
-          <input type="text" class="form-control" id="country" placeholder="" required>
-          <div class="invalid-feedback">
-            Company's country required.
+          <div class="col-md-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="country" placeholder="" required>
+            <div class="invalid-feedback">
+              Company's country required.
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <label for="state" class="form-label">State</label>
-          <input type="text" class="form-control" id="state" placeholder="" required>
-          <div class="invalid-feedback">
-            Company's state required.
+          <div class="col-md-3">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="state" placeholder="" required>
+            <div class="invalid-feedback">
+              Company's state required.
+            </div>
           </div>
-        </div>
-
-        <div class="col-md-3">
-          <label for="zip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="zip" placeholder="" required>
-          <div class="invalid-feedback">
-            Zip code required.
-          </div>
-        </div>
-      </form>
-
-      <form id="check">
-        <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
-          <label class="mt-md-0 mt-2">Data Protection Officer</label>
-          <div class="d-lg-flex justify-content-between align-items-center pb-4">
-            <div class="form-check" data-bs-toggle="collapse" href="#dpoForm" aria-expanded="false"
-              aria-controls="dpoForm">
-              <input type="checkbox" class="form-check-input" id="hasdpo" onclick="dpoData()">
-              <label class="form-check-label" for="same-address">The company has designated a DPO</label>
+          <div class="col-md-3">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <div class="invalid-feedback">
+              Zip code required.
             </div>
           </div>
         </div>
       </form>
+
+
+      <div class="wrapper d-flex justify-content-center flex-column p-3">
+        <label class="mt-md-0 mt-2">Data Protection Officer</label>
+        <div class="form-check" data-bs-toggle="collapse" href="#dpoForm" aria-expanded="false" aria-controls="dpoForm">
+          <input type="checkbox" class="form-check-input" id="hasdpo" onclick="dpoData()">
+          <label class="form-check-label" for="same-address">The company has designated a DPO</label>
+        </div>
+      </div>
 
       <form class="needs-validation collapse" novalidate id="dpoForm">
         <div class="row g-5">
@@ -283,8 +277,11 @@
           </div>
         </div>
       </form>
-      <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit"
-        onclick="retreivevalues()">Continue</button>
+      <div class="container p-4">
+        <button class="w-100 btn btn-primary btn-lg" id="continueBtn" type="submit"
+          onclick="retreivevalues()">Continue</button>
+
+      </div>
 
     </main>
 
