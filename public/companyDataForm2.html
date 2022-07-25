@@ -307,16 +307,27 @@
   </script>
 
 
+
   <script src="../src/bootstrap.bundle.min.js"></script>
 
   <script src="../src/form-validation.js"></script>
 
   <script type="text/javascript">
     function retreivevalues() {
+        var valid = true;
       let promise = new Promise((resolve, reject) => {
         var check = document.getElementById('hasdpo');
         var values = new Array();
         var dpo = new Array();
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+          if (!form.checkValidity()) {
+            alert("All fields must be filled");
+            valid = false;
+          }
+        })
 
 
         Array.from(document.getElementById("mainForm").elements).forEach(form => {
@@ -335,10 +346,13 @@
       })
 
       promise.then(() => {
-        window.location.assign('./checkbox.html');
+        if (valid)
+          window.location.assign('./checkbox.html');
       });
     }
   </script>
+
+
 </body>
 
 </html>
