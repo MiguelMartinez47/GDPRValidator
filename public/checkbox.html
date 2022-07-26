@@ -102,7 +102,7 @@
     <div class="bs-stepper-header" role="tablist">
       <div class="step" data-target="#test-l-1">
         <button type="button" class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1"
-        aria-selected="false" disabled="disabled">
+          aria-selected="false" disabled="disabled">
           <span class="bs-stepper-circle">1</span>
           <span class="bs-stepper-label">Company Details</span>
         </button>
@@ -156,144 +156,149 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Is your company's bussines model related to</h5>
-      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_1" />
-        <label class="form-check-label" for="flexCheckDefault">healthcare</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_2" />
-        <label class="form-check-label" for="flexCheckDefault">solvency or creditworthiness</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_3" />
-        <label class="form-check-label" for="flexCheckDefault">individual profiling</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_4" />
-        <label class="form-check-label" for="flexCheckDefault">political, trade union or religious activities</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_5" />
-        <label class="form-check-label" for="flexCheckDefault">telecommunications services</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_6" />
-        <label class="form-check-label" for="flexCheckDefault">insurance</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_7" />
-        <label class="form-check-label" for="flexCheckDefault">banking or financial entities</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_8" />
-        <label class="form-check-label" for="flexCheckDefault">social services</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_9" />
-        <label class="form-check-label" for="flexCheckDefault">advertising or large-scale video surveillance</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="notRequired_1" />
-        <label class="form-check-label" for="flexCheckDefault">other</label>
-      </li>
-    </ul>
+    <form class="border-white">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_1" />
+          <label class="form-check-label" for="dpiaRequired_1">Healthcare</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_2" />
+          <label class="form-check-label" for="dpiaRequired_2">Solvency or creditworthiness</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_3" />
+          <label class="form-check-label" for="dpiaRequired_3">Individual profiling</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_4" />
+          <label class="form-check-label" for="dpiaRequired_4">Political, trade union or religious activities</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_5" />
+          <label class="form-check-label" for="dpiaRequired_5">Telecommunications services</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_6" />
+          <label class="form-check-label" for="dpiaRequired_6">Insurance</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_7" />
+          <label class="form-check-label" for="dpiaRequired_7">Banking or financial entities</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_8" />
+          <label class="form-check-label" for="dpiaRequired_8">Aocial services</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_9" />
+          <label class="form-check-label" for="dpiaRequired_9">Advertising or large-scale video surveillance</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="radio" value="" id="notRequired_1" onclick="uncheckAll(this.id)"/>
+          <label class="form-check-label" for="notRequired_1">None of the above</label>
+        </li>
+      </ul>
+    </form>
   </div>
 
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Does your organization manage any data related to</h5>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_10" />
-        <label class="form-check-label" for="flexCheckDefault">racial or ethnic origin</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_11" />
-        <label class="form-check-label" for="flexCheckDefault">political opinions or religious beliefs</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_12" />
-        <label class="form-check-label" for="flexCheckDefault">trade union membership</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_13" />
-        <label class="form-check-label" for="flexCheckDefault">subject genetics</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_14" />
-        <label class="form-check-label" for="flexCheckDefault">biometric data that can uniquely identify a natural
-          person</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_15" />
-        <label class="form-check-label" for="flexCheckDefault">insurance</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_16" />
-        <label class="form-check-label" for="flexCheckDefault">physical or mental health</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_17" />
-        <label class="form-check-label" for="flexCheckDefault">data concerning a natural person's sex life or
-          orientation</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_18" />
-        <label class="form-check-label" for="flexCheckDefault">criminal convictions and offences</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_19" />
-        <label class="form-check-label" for="flexCheckDefault">geolocation data</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="notRequired_2" />
-        <label class="form-check-label" for="flexCheckDefault">other</label>
-      </li>
-    </ul>
+    <form class="border-white">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_10" />
+          <label class="form-check-label" for="dpiaRequired_10">Racial or ethnic origin</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_11" />
+          <label class="form-check-label" for="dpiaRequired_11">Political opinions or religious beliefs</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_12" />
+          <label class="form-check-label" for="dpiaRequired_12">Trade union membership</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_13" />
+          <label class="form-check-label" for="dpiaRequired_13">Subject genetics</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_14" />
+          <label class="form-check-label" for="dpiaRequired_14">Biometric data that can uniquely identify a natural
+            person</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_15" />
+          <label class="form-check-label" for="dpiaRequired_15">Insurance</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_16" />
+          <label class="form-check-label" for="dpiaRequired_16">Physical or mental health</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_17" />
+          <label class="form-check-label" for="dpiaRequired_17">Data concerning a natural person's sex life or
+            orientation</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_18" />
+          <label class="form-check-label" for="dpiaRequired_18">Criminal convictions and offences</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_19" />
+          <label class="form-check-label" for="dpiaRequired_19">Geolocation data</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="radio" value="" id="notRequired_2" onclick="uncheckAll(this.id)"/>
+          <label class="form-check-label" for="notRequired_2">None of the above</label>
+        </li>
+      </ul>
+    </form>
   </div>
 
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Does the processing carried out at your organization revolve around</h5>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_20" />
-        <label class="form-check-label" for="flexCheckDefault">creating or analysing subject profiles</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_21" />
-        <label class="form-check-label" for="flexCheckDefault">large-scale advertising and trade promotion to potential
-          clients</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_22" />
-        <label class="form-check-label" for="flexCheckDefault">providing services for the operation of public networks
-          or electronic communications (Internet Service Providers)</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_23" />
-        <label class="form-check-label" for="flexCheckDefault">managing associations or memberships of political
-          parties, trade unions,churches, religious communities, charities and other non-profit organizations with a
-          similar purpose</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_24" />
-        <label class="form-check-label" for="flexCheckDefault">subject genetics</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_25" />
-        <label class="form-check-label" for="flexCheckDefault">managing health or sanitary histories or control</label>
-      </li>
-      <li class="list-group-item">
-        <input class="form-check-input" type="checkbox" value="" id="notRequired_3" />
-        <label class="form-check-label" for="flexCheckDefault">other</label>
-      </li>
-    </ul>
+    <form class="border-white">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_20" />
+          <label class="form-check-label" for="dpiaRequired_20">Creating or analysing subject profiles</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_21" />
+          <label class="form-check-label" for="dpiaRequired_21">Large-scale advertising and trade promotion to potential
+            clients</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_22" />
+          <label class="form-check-label" for="dpiaRequired_22">Providing services for the operation of public networks
+            or electronic communications (Internet Service Providers)</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_23" />
+          <label class="form-check-label" for="dpiaRequired_23">Managing associations or memberships of political
+            parties, trade unions,churches, religious communities, charities and other non-profit organizations with a
+            similar purpose</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_24" />
+          <label class="form-check-label" for="dpiaRequired_24">Subject genetics</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="checkbox" value="" id="dpiaRequired_25" />
+          <label class="form-check-label" for="dpiaRequired_25">Managing health or sanitary histories or control</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input" type="radio" value="" id="notRequired_3" onclick="uncheckAll(this.id)"/>
+          <label class="form-check-label" for="notRequired_3">None of the above</label>
+        </li>
+      </ul>
+    </form>
   </div>
 
   <div class="b-example-divider"></div>
@@ -302,6 +307,18 @@
   <div class="d-grid col-2 mx-auto">
     <input id="submit" class="btn btn-primary" type="submit" value="Next" onclick="checkBeforeChange()">
   </div>
+
+
+  <script type="text/javascript">
+    function uncheckAll(clicked) {
+      elements = document.getElementById(clicked).parentElement.parentElement.parentElement.elements
+
+      for(let i = 0 ; i < elements.length-1; i++){
+        elements[i].checked = false;
+      }
+      
+    }
+  </script>
 
   <script type="text/javascript">
     var elimChecks = document.querySelectorAll('[id^=dpiaRequired_]');
@@ -329,7 +346,7 @@
       const required = localStorage.getItem('dpiaReq');
 
       if (notReqCount != 3 && required == 'false') {
-        alert("You have not answered all the questions, please if your company's activity does not match any of the given options, select 'other' in all three.");
+        alert("You have not answered all the questions, please if your company's activity does not match any of the given options, select 'None of the above' in all three.");
       } else if (notReqCount == 3 && required == 'false') {
         alert("The options you have chosen imply that the processing carried out at your company is low risk, therefore the rest of this process will require your information for drafting the documentation provided and you will not need a data processing impact assesment.");
         window.location.href = './checklists.html';
